@@ -1,0 +1,16 @@
+.navbar {
+    background-color: #000;
+
+    display: flex;
+    align-items: baseline;
+
+    a {
+	color: #4cf3ad;
+	padding-right: 5rem;
+    }
+    
+    h1 a {
+	padding-right: 10rem;
+	color: #b6bef5;
+    }
+}

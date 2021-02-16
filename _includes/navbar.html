@@ -1,14 +1,11 @@
-<style>
-  ul {
-      list-style-type: none;
-      display: flex;
-  }
-  li{
-      margin: 5px;
-  }
-</style>
+<div class="navbar">
+  <h1>
+    <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
+  </h1>
+  {% for page in site.navPages %}
+  <h2>
+    <a href="{{ page.url }}">{{ page.title }}</a>
+  </h2>
+  {% endfor %}
 
-<ul>
-  <li><a href="/">Home</a></li>
-  <li><a href="/about">About</a></li>
-</ul>
+</div>

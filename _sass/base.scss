@@ -1,0 +1,53 @@
+:root {
+    font-size: 62.5% /* Set 1rem == 10px */
+}
+
+body {
+    font-family: "Open Sans", Tahoma, Verdana, sans-serif;
+    color: #e4e9ee;
+    background-color: #232933;
+    font-size: 2.0rem;
+}
+
+h1{
+    color: #ffffff;
+    font-size: 4rem;
+    font-family: "Crimson Text", "Cambria Math", "Oswald";
+}
+
+h2{
+    color: #4cf3ad;
+    font-family: "Crimson Text", "Cambria Math", "Oswald";
+    font-size: 3.4rem;
+    line-height: 2;
+
+  strong {
+    font-weight: 610;  // standard is too strong.
+  }
+}
+
+h3{
+    color: #b6bef5;
+    font-family: "Open Sans", Tahoma, Verdana, sans-serif;
+    font-size: 3rem;
+    line-height: 1.75rem;
+}
+
+a {
+    color: #8dc2ee;
+   text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+// TODO
+code {
+    font-family: "Open",
+    //color:
+}
+
+html {
+    scroll-behavior: smooth;
+}
