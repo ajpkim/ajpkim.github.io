@@ -1,5 +1,4 @@
 .navbar {
-    background-color: #000;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -9,14 +8,14 @@
 
 .navbar-home a {
     font-family: "Crimson Text", "Cambria Math", "Oswald";
-    font-size: 4rem;
+    font-size: 4.5rem;
     color: #b6bef5;
-    margin-right: 100px;
+    margin-right: 75px;
 }
 
 .navbar-links a {
     font-family: "Crimson Text", "Cambria Math", "Oswald";
-    font-size: 3rem;
+    font-size: 4rem;
     color: #4cf3ad;
     margin-left: 5rem;
 }

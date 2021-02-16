@@ -1,7 +1,7 @@
 ---
 layout: default
-title: thotttttt
+title: first projjj
 date: 2021-02-13 12:00:00
 ---
 
-This is a test thought.
+Super important project.

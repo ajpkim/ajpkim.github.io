@@ -27,14 +27,14 @@ plugins:
 # Jekyll Collections
 collections:
   projects:
-    output: true # Set to render files in _pages folder, etc.
-    permalinks: /projects/:title/
+    output: true # Set to render files in _projects folder
+    permalink: /:collection/:title/
   pages:
     output: true
-    permalinks: /:title/
+    permalink: /:title/
   thoughts:
     output: true
-    permalinks: /thoughts/:title/
+    permalink: /:collection/:title/
 
 # Navigation bar
 navPages:

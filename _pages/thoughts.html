@@ -1,15 +1,14 @@
 ---
 layout: default
-title: Thoughts
+title: thoughts
+permalink: /thoughts/
 ---
 
-# thoughts
-
+<h1> thoughts </h1>
 <ul>
-  {% for thought in site.categories['thoughts'] %}
+  {% for thought in site.thoughts %}
   <li>
     <a href="{{ thought.url }}">{{ thought.title }}</a>
   </li>
-
   {% endfor %}
 </ul>

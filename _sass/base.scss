@@ -33,19 +33,28 @@ h3{
     line-height: 1.75rem;
 }
 
+
+ul {
+    // list-style-position: inside;
+}
+
+
 a {
     color: #8dc2ee;
-   text-decoration: none;
+    text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
+
+
+
 // TODO
 code {
-    font-family: "Open",
-    //color:
+    // font-family:
+    // color:
 }
 
 html {
@@ -54,6 +63,6 @@ html {
 }
 
 // Found online...
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+// *, *:before, *:after {
+//   box-sizing: inherit;
+// }
