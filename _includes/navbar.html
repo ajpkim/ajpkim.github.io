@@ -1,11 +1,13 @@
 <div class="navbar">
-  <h1>
-    <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
-  </h1>
-  {% for page in site.navPages %}
-  <h2>
+  
+  <div class="navbar-home">
+      <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
+  </div>
+  
+  <div class="navbar-links">
+    {% for page in site.navPages %}
     <a href="{{ page.url }}">{{ page.title }}</a>
-  </h2>
-  {% endfor %}
+      {% endfor %}
+  </div>
 
 </div>

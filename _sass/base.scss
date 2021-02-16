@@ -49,5 +49,11 @@ code {
 }
 
 html {
+    box-sizing: border-box;
     scroll-behavior: smooth;
+}
+
+// Found online...
+*, *:before, *:after {
+  box-sizing: inherit;
 }

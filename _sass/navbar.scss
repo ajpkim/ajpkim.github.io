@@ -1,16 +1,22 @@
 .navbar {
     background-color: #000;
-
     display: flex;
-    align-items: baseline;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 5px
+}
 
-    a {
-	color: #4cf3ad;
-	padding-right: 5rem;
-    }
-    
-    h1 a {
-	padding-right: 10rem;
-	color: #b6bef5;
-    }
+.navbar-home a {
+    font-family: "Crimson Text", "Cambria Math", "Oswald";
+    font-size: 4rem;
+    color: #b6bef5;
+    margin-right: 100px;
+}
+
+.navbar-links a {
+    font-family: "Crimson Text", "Cambria Math", "Oswald";
+    font-size: 3rem;
+    color: #4cf3ad;
+    margin-left: 5rem;
 }
