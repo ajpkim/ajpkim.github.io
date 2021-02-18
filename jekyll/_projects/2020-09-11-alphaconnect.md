@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "AlphaConnect: an AlphaZero inspired deep RL system"
+math: true
 ---
 
 # Implementing an AlphaZero inspired deep RL system <!-- omit in toc -->

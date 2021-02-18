@@ -1,0 +1,24 @@
+#+BEGIN_EXPORT html
+---
+layout: default
+title: render mathjax??
+math: true
+---
+#+END_EXPORT
+
+I want to render LaTeX with MathJax.
+
+$$\alpha := \beta \cdot \delta^{x^e}$$
+
+Will I get an error... $$\aalphaaa := 55$$
+
+What about single cash delims?
+$mx + b = y$
+
+And classic [ ] delims
+\[(e^2 \cdot 33) := 5 - \alpha\]
+
+Begin and end tags
+\begin
+\beta \cdot 5 := 99
+\end
