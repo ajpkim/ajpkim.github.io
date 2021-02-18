@@ -1,3 +1,5 @@
+@import "vars.scss";
+
 .navbar {
     display: flex;
     align-items: center;
@@ -7,15 +9,15 @@
 }
 
 .navbar-home a {
-    font-family: "Crimson Text", "Cambria Math", "Oswald";
+    font-family: $font-serif;
     font-size: 4.5rem;
-    color: #b6bef5;
+    color: $color-purple;
     margin-right: 75px;
 }
 
 .navbar-links a {
-    font-family: "Crimson Text", "Cambria Math", "Oswald";
+    font-family: $font-serif;
     font-size: 4rem;
-    color: #4cf3ad;
+    color: $color-green;
     margin-left: 5rem;
 }
