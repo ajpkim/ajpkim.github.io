@@ -1,9 +1,12 @@
 ---
 layout: default
-title: render mathjax??
+title: Syntax Highlighting???
 math: true
 ---
 
+<div id="outline-container-orgbafba88" class="outline-2">
+<h2 id="orgbafba88">Mathjax</h2>
+<div class="outline-text-2" id="text-orgbafba88">
 <p>
 I want to render LaTeX with MathJax.
 </p>
@@ -32,3 +35,48 @@ Begin and end tags
 &beta; &sdot; 5 := 99
 \end
 </p>
+</div>
+</div>
+<div id="outline-container-org2ee26b9" class="outline-2">
+<h2 id="org2ee26b9">code blocks</h2>
+<div class="outline-text-2" id="text-org2ee26b9">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> numpy <span class="org-keyword">as</span> np
+
+<span class="org-variable-name">data</span> = np.array([[1,2,3],[2,2,2]])
+
+<span class="org-keyword">def</span> <span class="org-function-name">foo</span>(apple: <span class="org-builtin">str</span>) -&gt; <span class="org-builtin">bool</span>:
+    <span class="org-variable-name">x</span> = 9
+    <span class="org-keyword">for</span> i <span class="org-keyword">in</span> <span class="org-builtin">range</span>(5):
+        <span class="org-keyword">print</span>(x)
+        <span class="org-variable-name">x</span> -= 1
+    <span class="org-keyword">return</span> apple == 33
+
+<span class="org-keyword">class</span> <span class="org-type">baz</span>:
+    <span class="org-keyword">def</span> <span class="org-function-name">__init__</span>(<span class="org-keyword">self</span>, a, b, c):
+        <span class="org-keyword">pass</span>
+</pre>
+</div>
+
+<p>
+Emacs  lisp!
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span class="org-keyword">setq</span> apple 33)
+</pre>
+</div>
+
+<p>
+JS
+</p>
+<div class="org-src-container">
+<pre class="src src-js"><span class="org-keyword">let</span> <span class="org-variable-name">a</span> = 4
+<span class="org-keyword">let</span> <span class="org-variable-name">d12</span> = <span class="org-string">'app'</span>
+
+<span class="org-keyword">for</span> (bird of birds) {
+    console.log(bird)
+}
+</pre>
+</div>
+</div>
+</div>

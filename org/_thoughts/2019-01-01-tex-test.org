@@ -1,11 +1,12 @@
 #+BEGIN_EXPORT html
 ---
 layout: default
-title: render mathjax??
+title: Syntax Highlighting???
 math: true
 ---
 #+END_EXPORT
 
+* Mathjax
 I want to render LaTeX with MathJax.
 
 $$\alpha := \beta \cdot \delta^{x^e}$$
@@ -22,3 +23,35 @@ Begin and end tags
 \begin
 \beta \cdot 5 := 99
 \end
+* code blocks
+#+begin_src python
+  import numpy as np
+
+  data = np.array([[1,2,3],[2,2,2]])
+
+  def foo(apple: str) -> bool:
+      x = 9
+      for i in range(5):
+          print(x)
+          x -= 1
+      return apple == 33
+
+  class baz:
+      def __init__(self, a, b, c):
+          pass
+#+end_src
+
+Emacs  lisp!
+#+begin_src emacs-lisp
+(setq apple 33)
+#+end_src
+
+JS
+#+begin_src js
+  let a = 4
+  let d12 = 'app'
+
+  for (bird of birds) {
+      console.log(bird)
+  }
+#+end_src
