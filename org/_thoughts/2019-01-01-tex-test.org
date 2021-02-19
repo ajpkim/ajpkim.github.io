@@ -6,6 +6,10 @@ math: true
 ---
 #+END_EXPORT
 
+
+
+..
+
 * Mathjax
 I want to render LaTeX with MathJax.
 
@@ -55,3 +59,32 @@ JS
       console.log(bird)
   }
 #+end_src
+
+
+#+BEGIN_EXPORT html
+ <details>
+  <summary>Epcot Center</summary>
+  <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+</details> 
+#+END_EXPORT
+
+
+#+BEGIN_EXPORT html
+ <details>
+<summary>Does it work?</summary>
+<p>
+#+END_EXPORT
+
+#+begin_src python
+  import torch.nn as nn
+
+  def foo(apple, banana):
+      print(apple + 's')
+      return 33
+#+end_src
+
+#+BEGIN_EXPORT html
+</p>
+</details> 
+#+END_EXPORT
+

@@ -12,6 +12,7 @@ body {
 }
 
 p {
+    font-weight: 500;
     line-height: 3rem;
 }
 
@@ -63,8 +64,8 @@ a:hover {
 
 // TODO
 code {
-    // font-family:
-    // color:
+    color: $color-code;
+    font-family: $font-mono;
 }
 
 details {
