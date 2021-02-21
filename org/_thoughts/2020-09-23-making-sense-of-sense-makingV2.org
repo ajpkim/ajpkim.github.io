@@ -1,73 +1,54 @@
 #+BEGIN_EXPORT html
 ---
-layout: default
-title: an org convert
+layout: post
+title: V2 Making Sense of Sense-Making
+date: 2020-09-23
+edited: 2021-01-01
+location: Franconia, New Hampshire, USA
 ---
 #+END_EXPORT
+#+TITLE: Making Sense of Sense-Making
 
-* Making Sense of Sense-Making
+How intelligent systems learn rich representations that exploit structure in the world to solve adaptive challenges is the major question of intelligence. How and why does intelligence emerge in complex adaptive systems? How can we build systems endowed with similar representational infrastructure for understanding the world and acting well in it?
+
+Here I begin building an intuitive perspective for understanding how adaptive systems gain meaningful knowledge of the world which supports intelligent behavior. My interest is in the emergence of meaning that leads to intelligent behaviors for adaptive systems, in contrast to a survey of the specific cognitive mechanisms supporting human intelligence. I want to develop some tools for thinking about the evolutionary learning process that developed such complex systems as the human mind. Below I aim to motivate the importance of the subjective and action-oriented nature of natural intelligence for understanding the search and learning process (evolution) that produced general intelligence on Earth.
+
+* Table of Contents                                           :NO_EXPORT:TOC:
 :PROPERTIES:
-:CUSTOM_ID:       f06991dc-cc77-4b1b-b7bb-403159a60d23
+:CUSTOM_ID: Table-of-Contents
 :END:
 
-September, 2020
-
----
-
-How intelligent systems learn rich representations that exploit
-structure in the world to solve adaptive challenges is the major
-question of intelligence. How and why does intelligence emerge in
-complex adaptive systems? How can we build systems endowed with similar
-representational infrastructure for understanding the world and acting
-well in it?
-
-Here I begin building an intuitive perspective for understanding how
-adaptive systems gain meaningful knowledge of the world which supports
-intelligent behavior. My interest is in the emergence of meaning that
-leads to intelligent behaviors for adaptive systems, in contrast to a
-survey of the specific cognitive mechanisms supporting human
-intelligence. I want to develop some tools for thinking about the
-evolutionary learning process that developed such complex systems as the
-human mind. Below I aim to motivate the importance of the subjective and
-action-oriented nature of natural intelligence for understanding the
-search and learning process (evolution) that produced general
-intelligence on Earth.
-
----
-
-* TOC                                                                   :TOC:
-- [[Making Sense of Sense-Making][Making Sense of Sense-Making]]
-- [[1. Adaptive systems are subjective and action-oriented][1. Adaptive systems are subjective and action-oriented]]
-    - [[1.1. intelligence is about exploiting emergent structure][1.1. intelligence is about exploiting emergent structure]]
-    - [[1.2. roadmap][1.2. roadmap]]
-- [[2. The appearance of a world][2. The appearance of a world]]
-    - [[2.1. cognitive architecture defines subjective frame][2.1. cognitive architecture defines subjective frame]]
-    - [[2.2. phenomenal contingencies][2.2. phenomenal contingencies]]
-    - [[2.3. meaning emerges within subjective world structure][2.3. meaning emerges within subjective world structure]]
+- [[1. Adaptive Systems are Subjective and Action-oriented][1. Adaptive Systems are Subjective and Action-oriented]]
+  - [[1.1. Intelligence is about exploiting emergent structure][1.1. Intelligence is about exploiting emergent structure]]
+  - [[1.2. Roadmap][1.2. Roadmap]]
+- [[2. The Appearance of a World][2. The Appearance of a World]]
+  - [[2.1. Cognitive architecture defines subjective frame][2.1. Cognitive architecture defines subjective frame]]
+  - [[2.2. Phenomenal contingencies][2.2. Phenomenal contingencies]]
+  - [[2.3. Meaning emerges within subjective world structure][2.3. Meaning emerges within subjective world structure]]
 - [[3. Umwelt][3. Umwelt]]
-    - [[3.1. the subjective perspective of living systems is crucial][3.1. the subjective perspective of living systems is crucial]]
-    - [[3.3. subjective and action-oriented sense-making][3.3. subjective and action-oriented sense-making]]
+  - [[3.1. the subjective perspective of living systems is crucial][3.1. the subjective perspective of living systems is crucial]]
+  - [[3.2. environment as fundamental part of situated agents' intelligence][3.2. environment as fundamental part of situated agents' intelligence]]
+  - [[3.3. subjective and action-oriented sense-making][3.3. subjective and action-oriented sense-making]]
 - [[4. Exploiting structure][4. Exploiting structure]]
-    - [[4.1. using world knowledge to do work][4.1. using world knowledge to do work]]
-    - [[4.2. biology exploits physics and creates complexity][4.2. biology exploits physics and creates complexity]]
-    - [[4.3. adaptive transitions in information processing][4.3. adaptive transitions in information processing]]
-    - [[4.4. adaptations exploit accessible structure][4.4. adaptations exploit accessible structure]]
+  - [[4.1. using world knowledge to do work][4.1. using world knowledge to do work]]
+  - [[4.2. biology exploits physics and creates complexity][4.2. biology exploits physics and creates complexity]]
+  - [[4.3. adaptive transitions in information processing][4.3. adaptive transitions in information processing]]
+  - [[4.4. adaptations exploit accessible structure][4.4. adaptations exploit accessible structure]]
 - [[5. Affordances][5. Affordances]]
-    - [[5.1. perceiving possibilities][5.1. perceiving possibilities]]
-    - [[5.2. expanding the concept of affordances][5.2. expanding the concept of affordances]]
-    - [[5.3. exploring evolutionary affordances][5.3. exploring evolutionary affordances]]
-    - [[5.4. situated action-oriented agents][5.4. situated action-oriented agents]]
+  - [[5.1. perceiving possibilities][5.1. perceiving possibilities]]
+  - [[5.2. expanding the concept of affordances][5.2. expanding the concept of affordances]]
+  - [[5.3. exploring evolutionary affordances][5.3. exploring evolutionary affordances]]
+  - [[5.4. situated action-oriented agents][5.4. situated action-oriented agents]]
 - [[6. Adaptive world models][6. Adaptive world models]]
-    - [[6.1. converging adaptive representational concepts][6.1. converging adaptive representational concepts]]
-    - [[6.2. life without objects?][6.2. life without objects?]]
-    - [[6.3. representational scaffolding][6.3. representational scaffolding]]
+  - [[6.1. converging adaptive representational concepts][6.1. converging adaptive representational concepts]]
+  - [[6.2. life without objects?][6.2. life without objects?]]
+  - [[6.3. representational scaffolding][6.3. representational scaffolding]]
 - [[7. Wrapping up][7. Wrapping up]]
 
-** 1. Adaptive systems are subjective and action-oriented
-   :PROPERTIES:
-   :ID:       d2dde72d-166b-4a3e-b89c-f064d9c1bd66
-   :CUSTOM_ID: 7df31510-0f49-4af6-b1d9-eac9dc11d5f9
-   :END:
+* 1. Adaptive Systems are Subjective and Action-oriented
+:PROPERTIES:
+:CUSTOM_ID: 1.-Adaptive-systems-are-subjective-and-action-oriented
+:END:
 Thinking about how and why intelligence emerges forces us to be in touch
 with the sole existence proof of general intelligence provided to us by
 nature. This proof reveals to us that natural intelligence is about
@@ -80,10 +61,10 @@ and evolution learned to represent such phenomena as chemical gradients,
 intuitive physics, and social dynamics for the purpose of producing
 adaptive behavior to support this point of view. How?
 
-*** 1.1. intelligence is about exploiting emergent structure
+** 1.1. Intelligence is about exploiting emergent structure
     :PROPERTIES:
     :ID:       0e6514fa-be10-4c21-87d9-0fdd6fdde82b
-    :CUSTOM_ID: 70e4f2de-b2c8-4eaa-86f0-6b931f4475af
+    :CUSTOM_ID: 1.1.-intelligence-is-about-exploiting-emergent-structure
     :END:
 In the big picture what I'm interested in is a story which describes the
 evolution of intelligence through transitions in information processing
@@ -96,10 +77,10 @@ the space between physics and phenomenology. The story of intelligence.
 This is a grandiose picture, but my weakness for philosophy and big
 picture conceptual framings mandates I define the project as such.
 
-*** 1.2. roadmap
+** 1.2. Roadmap
     :PROPERTIES:
     :ID:       2a7641d4-22d5-4ff5-acb3-c16bb7a68167
-    :CUSTOM_ID: 70171a53-1287-4799-a889-6f1fda70caa9
+    :CUSTOM_ID: 1.2.-roadmap
     :END:
 Below I begin contextualizing how natural intelligence is fundamentally
 situated in the world and the product of subjective sense-making
@@ -119,10 +100,10 @@ intelligence. At the end I will briefly review the discussion and
 restate the subjective nature of the world models built by evolution and
 their adaptive purpose.
 
-** 2. The appearance of a world
+* 2. The Appearance of a World
    :PROPERTIES:
    :ID:       eb9600e7-b9bd-49a3-8335-01aa07e164c2
-   :CUSTOM_ID: c0179262-aec1-4752-9d15-b06cf0b91110
+   :CUSTOM_ID: 2.-The-appearance-of-a-world
    :END:
 Cognitive systems each possess a particular perspective on the world
 which is defined by the network of information processing governing its
@@ -138,10 +119,10 @@ Take away one of my cone types and my world is different. Take away my
 ability to perceive the mental states of others and my world is
 different. Give me language when I have none and my world is different.
 
-*** 2.1. cognitive architecture defines subjective frame
+** 2.1. Cognitive architecture defines subjective frame
     :PROPERTIES:
     :ID:       36bcf7df-5c25-4d99-a94b-d3ef659430a2
-    :CUSTOM_ID: 3682a5e0-ba81-4e5b-b19b-4f9b986d0825
+    :CUSTOM_ID: 2.1.-cognitive-architecture-defines-subjective-frame
     :END:
 The subjective world is an amalgamation of features of the outside world
 that have been captured and integrated into a perspective on the world,
@@ -153,10 +134,10 @@ information about the world. What we know about the world and how we act
 flows from our sense-making capabilities and the structure we can
 perceive in the world.
 
-*** 2.2. phenomenal contingencies
+** 2.2. Phenomenal contingencies
     :PROPERTIES:
     :ID:       42166ffb-e6f8-49ab-a3c3-1d8ad21c39f6
-    :CUSTOM_ID: ee07b1d1-116b-4065-b7a6-e16ce735e7c0
+    :CUSTOM_ID: 2.2.-phenomenal-contingencies
     :END:
 I want to emphasize that despite it being trivially true that our
 subjective frame follows from our physical organization, it is difficult
@@ -174,10 +155,10 @@ literature of abnormal psychology to gain a deeper appreciation for the
 ways in which our subjective realities could be different given
 adjustments to our cognitive architectures.
 
-*** 2.3. meaning emerges within subjective world structure
+** 2.3. Meaning emerges within subjective world structure
     :PROPERTIES:
     :ID:       9df22323-4ab0-4717-ab19-6189395c53f9
-    :CUSTOM_ID: c7128fe1-3ea9-4efc-8593-1c8cdb2556c0
+    :CUSTOM_ID: 2.3.-meaning-emerges-within-subjective-world-structure
     :END:
 So why focus on the subjective perspective of cognitive systems at all?
 Because it is the structure of a cognitive systems subjective world
@@ -197,10 +178,10 @@ it is familiar, but we can just as well consider the structure of the
 world from the perspective of a single cell or other basic forms of
 life.
 
-** 3. Umwelt
+* 3. Umwelt
    :PROPERTIES:
    :ID:       82590109-fc22-4215-b807-6e82fb513cb9
-   :CUSTOM_ID: f8968013-0b75-4f76-9706-5b9e2d7dd5fa
+   :CUSTOM_ID: 3.-Umwelt
    :END:
 All of this so far is concisely conveyed in Jakob von Uexküll's Umwelt
 theory from his work in biology and semiotics in the early 20th century.
@@ -211,10 +192,10 @@ world so as to enable appropriate behavior. He advocated for conceiving
 of living systems as subjects first and foremost, in contrast to
 traditional reductive approaches in biology.
 
-*** 3.1. the subjective perspective of living systems is crucial
+** 3.1. the subjective perspective of living systems is crucial
     :PROPERTIES:
     :ID:       e5d1ed9c-c1a2-4bef-aa01-6c1ee4ca009e
-    :CUSTOM_ID: 49276fa3-52d4-488b-ad83-0a9f266596f3
+    :CUSTOM_ID: 3.1.-the-subjective-perspective-of-living-systems-is-crucial
     :END:
 To begin formalizing the study of animals' subjective worlds, von
 Uexküll used the term umwelt ("environment") to describe the world as it
@@ -225,9 +206,10 @@ resources and functional entanglement with the environment. The umwelt
 is complemented by the umgebung which describes the full external
 reality.
 
-*** 3.2. environment as fundamental part of situated agents' intelligence
+** 3.2. environment as fundamental part of situated agents' intelligence
 :PROPERTIES:
 :ID:       2eeb586c-d803-4c46-8dff-071abeab61b0
+:CUSTOM_ID: 3.2.-environment-as-fundamental-part-of-situated-agents'-intelligence
 :END:
 In addition to championing the subjective nature of living systems, Umwelt theory also emphasizes the role of the environment in cognition.
 If we do not appreciate the peculiar ways cognitive systems' relate to
@@ -243,10 +225,10 @@ of the importance of the environment sets the table nicely for further
 exploration of distributed intelligence and theories that [[https://www.nyu.edu/gsas/dept/philo/courses/concepts/clark.html][extend cognition]] 
 beyond the narrow confines of the skull.
 
-*** 3.3. subjective and action-oriented sense-making
+** 3.3. subjective and action-oriented sense-making
     :PROPERTIES:
     :ID:       b9e8f0be-d3f4-45d6-9117-7df8f0ef2cae
-    :CUSTOM_ID: a9a326d8-90a1-49a5-9743-edd103ae0604
+    :CUSTOM_ID: 3.3.-subjective-and-action-oriented-sense-making
     :END:
 What we get here is a framing of adaptive behavior that focuses on the
 subjective sense-making of living systems and their distinctive
@@ -258,10 +240,10 @@ action-oriented nature of biological intelligence. These are nice
 footholds when considering how adaptive systems learn rich models of the
 world.
 
-** 4. Exploiting structure
+* 4. Exploiting structure
    :PROPERTIES:
    :ID:       f230174c-1812-4bb3-b7d9-fc33ddbb9b4a
-   :CUSTOM_ID: 6bfcc610-4007-4e8a-a94b-7b50e9ccface
+   :CUSTOM_ID: 4.-Exploiting-structure
    :END:
 Let's bring this all back directly to the emergence of intelligence and
 clarify what it means to exploit structure in the world. To first recap,
@@ -277,10 +259,10 @@ intelligence. What we want to understand is how adaptive systems learn
 to make sense of, and exploit, different forms of structure in the
 world.
 
-*** 4.1. using world knowledge to do work
+** 4.1. using world knowledge to do work
     :PROPERTIES:
     :ID:       52692514-0eb8-42b6-9853-cd59c3c38359
-    :CUSTOM_ID: 37e86f18-c8af-4e6b-8fe4-98dfdc16d982
+    :CUSTOM_ID: 4.1.-using-world-knowledge-to-do-work
     :END:
 But what does it actually mean to "exploit structure" as I've been
 causally saying? The phrase is shorthand for "capture some information
@@ -299,10 +281,10 @@ of information about the world is that we are built to exploit tons of
 structure in the world, have rich ways of understanding the world, and
 are thus pretty intelligent systems.
 
-*** 4.2. biology exploits physics and creates complexity
+** 4.2. biology exploits physics and creates complexity
     :PROPERTIES:
     :ID:       7419c32c-7ef3-401e-ac97-807882db3512
-    :CUSTOM_ID: 975876d0-98f0-4fc1-b452-60c9fd8e5b2f
+    :CUSTOM_ID: 4.2.-biology-exploits-physics-and-creates-complexity
     :END:
 By exploiting the structure of physics, biology creates emergent levels
 of structure and complexity. The dynamics governing mechanical physics
@@ -317,10 +299,10 @@ can evolve. As these basic self-organizing systems evolve, the range of
 possible collective computations grows, allowing for more complex
 organization and new functional engagements with the real world.
 
-*** 4.3. adaptive transitions in information processing
+** 4.3. adaptive transitions in information processing
     :PROPERTIES:
     :ID:       731057c2-d911-434d-b7f7-b2bb78fa555f
-    :CUSTOM_ID: fdac96ee-90d8-4c99-a18d-59dd91a191eb
+    :CUSTOM_ID: 4.3.-adaptive-transitions-in-information-processing
     :END:
 In building world models to process and exploit structure in the world,
 evolution discovered ways of capturing and using information about the
@@ -335,10 +317,10 @@ naively explores possibilities affordances (ADD LINK BACK IN HERE) and
 innovates in response to adaptive challenges, opportunities for
 increased complexity and intelligence appear.
 
-*** 4.4. adaptations exploit accessible structure
+** 4.4. adaptations exploit accessible structure
     :PROPERTIES:
     :ID:       714cbfd1-cc41-4a19-a21d-bd6768065e12
-    :CUSTOM_ID: 8abffc00-e93e-4200-9c9d-e7dfc351c69e
+    :CUSTOM_ID: 4.4.-adaptations-exploit-accessible-structure
     :END:
 Keep in mind the subjective frame here as sense-making serves a
 subjective perspective and all adaptations necessarily exploit some
@@ -356,10 +338,10 @@ higher-levels of structure are more opaque. Next I'll introduce the
 concept of affordances to help us better frame a cognitive systems
 relation to the world.
 
-** 5. Affordances
+* 5. Affordances
    :PROPERTIES:
     :ID:       180b7f3a-4a81-4b23-a5e3-bf166ad2b396
-    :CUSTOM_ID: e8f844b8-6f88-429d-b01b-d80b62ab7b38
+    :CUSTOM_ID: 5.-Affordances
    :END:
 We need more theoretical tools to help describe the relationship between
 cognitive systems and the environment. The concept of affordances
@@ -374,10 +356,10 @@ good or ill". The upshot of affordances is the beginning of a theory of
 the perception of meaning for living systems that emphasizes subjective
 sense-making and action-oriented engagement with the world.
 
-*** 5.1. perceiving possibilities
+** 5.1. perceiving possibilities
     :PROPERTIES:
     :ID:       fcaed959-4ed7-4adf-8db1-1a92bc5914f7
-    :CUSTOM_ID: ada10dc0-0167-4532-b9db-d66a99311de0
+    :CUSTOM_ID: 5.1.-perceiving-possibilities
     :END:
 So what's an affordance? The term has been adopted and used by different
 communities in varying ways, particularly in the field of human-computer
@@ -396,10 +378,10 @@ are traces of von Uexküll's ideas here in the agent relative status of
 affordances and the focus on action-oriented engagement with
 environmental niches; the umwelt is colored by affordances.
 
-*** 5.2. expanding the concept of affordances
+** 5.2. expanding the concept of affordances
     :PROPERTIES:
     :ID:       120263c2-d89a-4b93-8615-538c7821e9c4
-    :CUSTOM_ID: a2a6b51a-f77e-4bd6-b1b3-93421722b480
+    :CUSTOM_ID: 5.2.-expanding-the-concept-of-affordances
     :END:
 Perhaps in contrast to strict Gibsonians, I prefer a wider notion of
 affordances that extends above and below the level of single organism of
@@ -413,10 +395,10 @@ longer time scales we can consider evolutionary affordances, the
 possible evolutionary paths, present for particular physical systems in
 certain environmental niches.
 
-*** 5.3. exploring evolutionary affordances
+** 5.3. exploring evolutionary affordances
     :PROPERTIES:
     :ID:       4a73aabb-8d69-4990-9697-eee1a5e1e023
-    :CUSTOM_ID: a9083dd2-5f95-4c5d-893d-ac7830de4580
+    :CUSTOM_ID: 5.3.-exploring-evolutionary-affordances
     :END:
 Because the set of all possible affordances for a system entirely
 reflects how a system perceives and can interact with the world, the
@@ -437,10 +419,10 @@ or social information, they create new representations and affordances.
 Evolution is an effective, although inefficient, search mechanism for
 learning about the structure of the world.
 
-*** 5.4. situated action-oriented agents
+** 5.4. situated action-oriented agents
     :PROPERTIES:
     :ID:       18b2079d-5416-4195-bec2-0fde319eba8f
-    :CUSTOM_ID: 7dc72e1a-58d1-43c7-92f5-a1022ab69c43
+    :CUSTOM_ID: 5.4.-situated-action-oriented-agents
     :END:
 If we return to the general notion of affordances as the possible
 actions offered by the environment to an agent, we see that affordances
@@ -453,10 +435,10 @@ to conceive of the subjective meaning of a signal to a cognitive system,
 affordances are a powerful concept that is useful for a wide variety of
 questions about cognition and intelligence.
 
-** 6. Adaptive world models
+* 6. Adaptive world models
    :PROPERTIES:
     :ID:       67de7625-cedb-4fc6-934c-08c9266b4ac8
-    :CUSTOM_ID: aae54fe2-ab83-4659-92fa-9ea869b5c0e1
+    :CUSTOM_ID: 6.-Adaptive-world-models
    :END:
 Over time evolution learned about more and more structure in the world
 as it naively explored affordances and the space of possible minds. This
@@ -474,10 +456,10 @@ experiential paths and cultural inheritances. However, this richness is
 built atop representational scaffolding for making sense of the world
 that we share in part with many other creatures.
 
-*** 6.1. converging adaptive representational concepts
+** 6.1. converging adaptive representational concepts
     :PROPERTIES:
     :ID:       30a14cf8-a456-41f1-9473-4b1c75dac15c
-    :CUSTOM_ID: b721181f-9f97-4414-90ce-72a90a07a1cf
+    :CUSTOM_ID: 6.1.-converging-adaptive-representational-concepts
     :END:
 The common representational concepts that define umwelt across the
 biosphere are prominent because they pick out information about the
@@ -491,10 +473,10 @@ intuitive physics frame our own subjective worlds and are so familiar
 that they can be hard to appreciate as important components of
 intelligence.
 
-*** 6.2. life without objects?
+** 6.2. life without objects?
     :PROPERTIES:
     :ID:       8640a366-cfa1-4eb8-9fd0-b1e9da322952
-    :CUSTOM_ID: cff73187-aa6f-4aa9-8b93-c866974a87de
+    :CUSTOM_ID: 6.2.-life-without-objects?
     :END:
 For example, it is hard to imagine living without an intuitive concept
 for something like the general category of object, a subjective world
@@ -510,10 +492,10 @@ helping me navigate the world. Again, I recommend reading accounts from
 abnormal psychology to develop an appreciation for the fragility of our
 own familiar percepts and phenomenology.
 
-*** 6.3. representational scaffolding
+** 6.3. representational scaffolding
     :PROPERTIES:
     :ID:       ca9311a8-4c4a-44af-97a0-cd394a861239
-    :CUSTOM_ID: 2995116a-aa64-4966-9397-a1de38dad051
+    :CUSTOM_ID: 6.3.-representational-scaffolding
     :END:
 We have been tuned to the world we live in by evolution. Our subjective
 worlds are filled with structure and affordances that support our
@@ -530,10 +512,10 @@ concepts underlying our own general intelligence we should keep in mind
 the subjective and action-oriented framework within which these
 competencies emerged.
 
-** 7. Wrapping up
+* 7. Wrapping up
    :PROPERTIES:
     :ID:       8df341d1-9d7d-4a45-b0c8-80fb0d0233ff
-    :CUSTOM_ID: b4511a0b-1a9a-49a7-87f0-ab9068225788
+    :CUSTOM_ID: 7.-Wrapping-up
    :END:
 Intelligence is a hard problem. I think the more tools we have for
 trying to understand how adaptive systems learn about the structure of

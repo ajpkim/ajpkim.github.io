@@ -1,16 +1,22 @@
 #+BEGIN_EXPORT html
 ---
-layout: default
+layout: post
 title: Syntax Highlighting???
 math: true
+date: 2020-10-10
 ---
 #+END_EXPORT
 
+How does =this var= look compared to this var?
 
+* Table of Contents                                                     :TOC:
+- [[Happy?@ 0-093,,.$ Mathjax][Happy?@ 0-093,,.$ Mathjax]]
+- [[code blocks][code blocks]]
 
-..
-
-* Mathjax
+* Happy?@ 0-093,,.$ Mathjax
+:PROPERTIES:
+:CUSTOM_ID: Happy?@-0-093,,.$-Mathjax
+:END:
 I want to render LaTeX with MathJax.
 
 $$\alpha := \beta \cdot \delta^{x^e}$$
@@ -28,6 +34,9 @@ Begin and end tags
 \beta \cdot 5 := 99
 \end
 * code blocks
+:PROPERTIES:
+:CUSTOM_ID: code-blocks
+:END:
 #+begin_src python
   import numpy as np
 

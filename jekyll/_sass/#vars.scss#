@@ -1,0 +1,69 @@
+
+// // Colors
+// I like this: https://www.color-hex.com/color-palette/105089
+// Base
+$color-bg-dark: #232933;
+$color-bg: #fff6f8;
+
+$color-bg: #fff6f8;
+$color-bg: #bbd7ef;
+
+$color-bg: #101357;
+$color-bg: #f7f7f7;
+$color-bg: #121212; // Material design rec for dark mode bg
+// $color-bg: #121222;
+$color-bg: #4d4d52;
+$color-bg: #212121;
+
+
+    #0A0A0A
+    #121212
+    #15292B
+    #161618
+    #181818
+    #192734
+    #212121
+    #212124
+    #22303C
+    #242526
+    #282828
+    #3A3B3C
+    #404040
+
+// $color-bg-dark: #0a234a;
+// $color-bg-dark: #e4e9ee;
+$color-body: #e4e9ee;
+// $color-body: #000;
+
+
+$color-white: #ffffff;
+$color-loud-green: #4cf3ad;
+$color-purple: #b6b3f5;
+$color-pink: #ffbbe8;
+$color-soft-pink: #ffdbeb;
+
+$color-light-green: #85eeac;
+$color-green: #73d8b2;
+$color-loud-green: #16ffbd;
+
+// Headers
+$color-h1: $color-white;
+$color-h2: $color-body;
+$color-h3: $color-body;
+$color-h4: $color-green;
+$color-h5: $color-green;
+$color-h6: $color-green;
+
+// Semantic
+$color-strong: #ffbbe8;
+$color-link: #8dc2ee;
+$color-code: #bbd7ef;
+// Tables
+$color-table-header: #30528d;
+$color-table-even-rows: #3c434e;
+$color-table-odd-rows: #2e343d;
+
+// // Fonts
+$font-sans: "Open Sans", "Tahoma", "Verdana", "sans-serif";
+$font-serif: "Crimson Text", "Cambria Math", "Oswald";
+$font-mono: "DejaVu Sans Mono"

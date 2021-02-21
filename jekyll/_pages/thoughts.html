@@ -7,8 +7,6 @@ permalink: /thoughts/
 <h1> thoughts </h1>
 <ul>
   {% for thought in site.thoughts %}
-  <li>
-    <a href="{{ thought.url }}">{{ thought.title }}</a>
-  </li>
+  <li><a href="{{ thought.url }}">{{ thought.title }}</a></li>
   {% endfor %}
 </ul>

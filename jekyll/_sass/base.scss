@@ -7,7 +7,7 @@
 body {
     font-family: $font-sans;
     color: $color-body;
-    background-color: $color-bg-dark;
+    background-color: $color-bg;
     font-size: 2.0rem;
 }
 
@@ -21,13 +21,13 @@ strong {
 }
 
 h1 {
-    color: $color-white;
+    color: $color-h1;
     font-family: $font-serif;
     font-size: 4rem;
 }
 
 h2 {
-    color: $color-green;
+    color: $color-h2;
     font-family: $font-serif;
     font-size: 3.5rem;
 
@@ -37,13 +37,13 @@ h2 {
 }
 
 h3 {
-    color: $color-purple;
+    color: $color-h3;
     font-family: $font-sans;
     font-size: 2.5rem;
 }
 
 h4 {
-    color: $color-purple;
+    color: $color-h4;
     font-size: 2.25rem;
     font-family: $font-sans;
 }
@@ -73,6 +73,11 @@ details {
 }
 
 // Tables
+
+// table {
+//     border: 3px white solid
+// }
+
 table th {
   font-size: 18px;
   font-weight: bold;

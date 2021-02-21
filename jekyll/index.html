@@ -6,17 +6,13 @@ title: Alex Kim
 <h1> projects </h1>
 <ul>
   {% for project in site.projects %}
-  <li>
-    <a href="{{ project.url }}">{{ project.title }}</a>
-  </li>
+  <li><a href="{{ project.url }}">{{ project.title }}</a></li>
   {% endfor %}
 </ul>
 
 <h1> thoughts </h1>
 <ul>
   {% for thought in site.thoughts %}
-  <li>
-    <a href="{{ thought.url }}">{{ thought.title }}</a>
-  </li>
+  <li><a href="{{ thought.url }}">{{ thought.title }}</a></li>
   {% endfor %}
 </ul>
