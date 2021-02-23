@@ -1,75 +1,46 @@
-/*
-Styling for interactive Boids simulation
-Author: Alex Kim (ajpkim)
-Date: 2021-01-20
-Repo: https://github.com/ajpkim/interactive-boids
-  - Different styling used for ajpkim blog
-*/
-
-body {
-    max-width: 80%;
-    margin: auto;
-    background-color: #232933;
-}
-
-#postInfo {
-    line-height: 0.3rem;
-    margin-bottom: 2rem;
-}
-
-h1 {
-    color: white;
-    margin-bottom: 0;
-}
-
-p {
-    color: white;
-    margin: 0;
-}
-
-
-
 #canvas {
     width: 100%;
     height: 100%;
     border: 3px solid #fff;
     background-color: #b6bef5;
-
 }
 
-.boidsControlsGrid {
-    display: grid;
-    grid-template-columns: 20% 60% 20%;
-    margin-top: 10px;
+input {
+    width: 47%;
 }
 
-.boidsControlsGrid * {
+#classic-forces-container {
+    bottom:0;
+    max-width: 350px;
+    position:fixed;
+    overflow-y:visible;
+    overflow-x:hidden;
+    top: 20rem;
+    left: 3%;
+    width: 20%;
+}
+
+#classic-forces-container h2, h3 {
     text-align: center;
-    line-height: 1.2em;
 }
 
-.boidsControlsGrid h2 {
-    color: #4cf3ad;
-    margin: 0.5;
-    font-size: 1.2em;
-    line-height: 0.9em;
-    
+#predator-forces-container {
+    bottom:0;
+    max-width: 350px;
+    position:fixed;
+    overflow-y:visible;
+    overflow-x:hidden;
+    top: 20rem;;
+    right: 3%;
+    width: 20%;
 }
 
-.boidsControlsGrid h3 {
-    color: #b6bef4;
-    margin: 0;
-    margin-bottom: 0.5rem;
-    font-size: 0.9em;
+#predator-forces-container h2, h3 {
+    text-align: center;
 }
 
-.boidsControlsGrid p {
-    margin-top: 0;
-    font-size: 0.75em;
-    margin-bottom: 0.1em;
-}
-
-.sliderAnnotation {
-    margin-top: 200px;
-    font-size: 1.0em;
+.slider-annotation {
+    font-size: 1.6rem;
+    color: #ffeab4;
+    text-align: center;
 }

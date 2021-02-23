@@ -1,7 +1,13 @@
-@import "vars.scss";
+@import "vars";
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $color-silver $color-dark-grey;
+
+}
 
 :root {
-    font-size: 62.5% // Set 1rem == 10px
+    font-size: 62.5%; // Set 1rem == 10px
 }
 
 body {
@@ -30,6 +36,7 @@ h2 {
     color: $color-h2;
     font-family: $font-serif;
     font-size: 3.5rem;
+    margin: 3rem 0;
 
   strong {
     font-weight: 610;  // standard is too strong.
@@ -40,12 +47,14 @@ h3 {
     color: $color-h3;
     font-family: $font-sans;
     font-size: 2.5rem;
+    margin: 2rem 0;
 }
 
 h4 {
     color: $color-h4;
     font-size: 2.25rem;
     font-family: $font-sans;
+    margin: 2.25rem;
 }
 
 a {
@@ -54,7 +63,6 @@ a {
 
     strong {
 	color: $color-link;
-	// font-weight: normal;
     }
 }
 
@@ -62,7 +70,19 @@ a:hover {
     text-decoration: underline;
 }
 
-// TODO
+// Org exports images in a <div class="figure"> element
+.figure {
+    display: block;
+    text-align: center;
+}
+
+img {
+    // Dynamically resize images
+    max-width: 100%;
+    height: auto;
+    margin: 0.5rem;
+}
+
 code {
     color: $color-code;
     font-family: $font-mono;
@@ -74,9 +94,12 @@ details {
 
 // Tables
 
-// table {
-//     border: 3px white solid
-// }
+table {
+    border: 2px white solid;
+    // text-align: center;
+    margin: auto;
+
+}
 
 table th {
   font-size: 18px;
@@ -99,7 +122,9 @@ table tr:nth-child(2n) {
     background-color: $color-table-odd-rows;
 }
 
-
+.clear {
+    clear: both;
+}
 
 html {
     box-sizing: border-box;

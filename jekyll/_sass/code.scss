@@ -1,7 +1,7 @@
 // Base generated via default org-html export
 
 pre {
-    border: 2px solid #ccc;
+    border-top: 6px solid $color-dark-grey;  // Matches the bottom scrollbar that is always present
     padding: 1rem;
     font-family: $font-mono;
     overflow: auto;
@@ -9,10 +9,13 @@ pre {
 }
 
 pre.src {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    line-height: 2.5rem;
     position: relative;
     overflow: visible;
+    overflow-x: scroll;
     background-color: $color-src-bg;
+    margin: 2.5rem 0;
 }
 
 pre.src:before {
@@ -20,7 +23,7 @@ pre.src:before {
     display: none;
     position: absolute;
     background-color: white;
-    top: -1rem;
+    top: 1rem;
     right: 1rem;
     padding: 3px;
     border: 1px solid black;

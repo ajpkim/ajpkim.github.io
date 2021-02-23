@@ -5,13 +5,14 @@ $color-creamy-white: #f7f7f7;
 $color-grey: #a9a9a9;
 $color-silver: #c0c0c0;
 $color-light-grey: #d3d3d3;
+$color-dark-grey: #555555;
 $color-purple: #b6b3f5;
 $color-pink: #ffbbe8;
 $color-soft-pink: #ffdbeb;
 $color-light-baby-blue: #b1e3fa;
 $color-baby-blue: #acdbff;
 $color-navy: #101357;
-$color-light-orange: #ffeab4;
+$color-light-orange: #ffeab4; 
 $color-light-green: #85eeac;
 $color-green: #73d8b2;
 $color-loud-green: #16ffbd;
@@ -35,21 +36,22 @@ $color-h4: $color-body;
 $color-h5: $color-body;
 $color-h6: $color-body;
 
-// Semantic
+// Strong
 $color-strong: $color-pink;
+
+// Elements
 $color-link: #8dc2ee;
 $color-code: $color-light-orange;
-
+$color-post-metadata: $color-light-grey;
+$color-src-bg: $color-dark-emacs-bg;
+$color-src-bg: $color-bg;
 // Tables
 $color-table-header: #30528d;
 $color-table-even-rows: #3c434e;
 $color-table-odd-rows: #2e343d;
 
-// Page elements
-$color-post-metadata: $color-light-grey;
-$color-src-bg: $color-dark-emacs-bg;
-
 // // Fonts
 $font-sans: "Open Sans", "Tahoma", "Verdana", "sans-serif";
 $font-serif: "Crimson Text", "Cambria Math", "Oswald";
-$font-mono: "DejaVu Sans Mono"
+// $font-mono: "DejaVu Sans Mono"
+$font-mono: "Source Code Pro", monospace;

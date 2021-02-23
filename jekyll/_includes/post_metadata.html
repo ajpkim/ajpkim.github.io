@@ -11,5 +11,9 @@
   <br>
   {{ page.location }}
   {% endif %}
+  {% if page.link %}
+  <br>
+  <a href={{ page.link[0] }}>{{ page.link[1] }}</a>
+  {% endif %}  
 </p>
 </div>

@@ -8,7 +8,6 @@ github_username:  ajpkim
 
 # Build settings
 markdown: kramdown
-# theme: minima
 plugins:
   - jekyll-feed
 
@@ -44,4 +43,3 @@ navPages:
     url: /thoughts
   - title: about
     url: /about
-  

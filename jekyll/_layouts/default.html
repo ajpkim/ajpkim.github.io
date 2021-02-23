@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/styles-org-htmlize.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
+    {% if page.stylesheet %}
+    <link rel="stylesheet" href={{ page.stylesheet }}>
+    {% endif %}
     {% if page.math %}
     {% include mathjax-support.html %}
     {% endif %}

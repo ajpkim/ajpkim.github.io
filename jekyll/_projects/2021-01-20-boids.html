@@ -1,77 +1,159 @@
 ---
-layout: default
+layout: post
+stylesheet: "/assets/boids/styles.css"
 title: "Boids: Emergent flocking behavior"
+date: 2021-01-20
+link:
+  - "https://github.com/ajpkim/interactive-boids"
+  - github
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Boids</title>
-    <link rel="stylesheet" href="/assets/boids/styles.css">
-  </head>
-  <body>
-    <main>
-      <div id="postInfo">
-	<h1>Boids: Emergent flocking behavior</h1>
-	<p>January, 2021</p>
-	<a href="https://github.com/ajpkim/interactive-boids" target="_blank">github</a>
-      </div>
 
-	<div id="canvasDiv">
-	<canvas id="canvas" ></canvas>
-	</div>
+<main>
+  <canvas id="canvas" ></canvas>
+  
+  <div id="classic-forces-container">
+    <h2>Classic Steering Forces</h2>
+    <p class="slider-annotation">Left sliders = Range | Right sliders = Force</p>
+    
+    <h3>Align</h3>
+    <input type="range" min="1" max="20" value="10" id="alignRangeSlider" class="rangeSlider">
+    <input type="range" min="1" max="20" value="5" id="alignForceSlider" class="forceSlider">
 
-	<div class="boidsControlsGrid">
+    <h3>Separate</h3>
+    <input type="range" min="1" max="20" value="10" id="separateRangeSlider" class="rangeSlider">
+    <input type="range" min="1" max="20" value="5" id="separateForceSlider" class="forceSlider">
 
-	  <div class="rangeAnnotationCol">
-	    <div class="sliderAnnotation">
-	      <h2>Range Sliders</h2>
-	    </div>
+    <h3>Cohere</h3>
+    <input type="range" min="1" max="20" value="10" id="cohereRangeSlider" class="rangeSlider">
+    <input type="range" min="1" max="20" value="5" id="cohereForceSlider" class="forceSlider">
+  </div>
 
-	  </div>
+  <div id="predator-forces-container">
+    <h2>Predator Interactions</h2>
+    <p class="slider-annotation">Left sliders = Range | Right sliders = Force</p>
+    
+    <h3>Boid predator avoidance</h3>
+    <input type="range" min="1" max="20" value="10" id="predatorAvoidanceRangeSlider" class="rangeSlider">
+    <input type="range" min="1" max="20" value="8" id="predatorAvoidanceForceSlider" class="forceSlider">
 
-	  <div class="slidersCol">
+    <h3>Predator range & population</h3>
+    <input type="range" min="1" max="20" value="8" id="predatorPerceptionRangeSlider" class="rangeSlider">
+    <input type="range" min="0" max="8" value="1" id="predatorCountSlider" class="predatorCountSlider">
 
-	    <h2>Classic Steering Forces</h2>
+  </div>
 
-	      <h3>Align</h3>
-	    <p>(velocity matching)</p>
-	      <input type="range" min="1" max="20" value="10" id="alignRangeSlider" class="rangeSlider">
-	      <input type="range" min="1" max="20" value="5" id="alignForceSlider" class="forceSlider">
+  <p>
+    blah blah
+  </p>
+  <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>    <p>
+    blah blah
+  </p>
 
-	      <h3>Separate</h3>
-	      <p>(collision avoidance)</p>
-	      <input type="range" min="1" max="20" value="10" id="separateRangeSlider" class="rangeSlider">
-	      <input type="range" min="1" max="20" value="5" id="separateForceSlider" class="forceSlider">
 
-	      <h3>Cohere</h3>
-	      <p>(flock centering)</p>
-	      <input type="range" min="1" max="20" value="10" id="cohereRangeSlider" class="rangeSlider">
-	      <input type="range" min="1" max="20" value="5" id="cohereForceSlider" class="forceSlider">
+</main>
+<script src="/assets/boids/js/boids.js"></script>
 
-	      <h2>Predator Interactions</h2>
+<script>
+  // Toggle sliders based on scroll position relative to canvas
+  window.onscroll = function(){
+      let target = window.scrollY + document.querySelector('canvas').getBoundingClientRect().bottom - 200
 
-	      <h3>Boid predator avoidance</h3>
-	      <input type="range" min="1" max="20" value="10" id="predatorAvoidanceRangeSlider" class="rangeSlider">
-	      <input type="range" min="1" max="20" value="8" id="predatorAvoidanceForceSlider" class="forceSlider">
-
-	      <h3>Predator range & population</h3>
-	      <input type="range" min="1" max="20" value="8" id="predatorPerceptionRangeSlider" class="rangeSlider">
-	      <input type="range" min="0" max="8" value="1" id="predatorCountSlider" class="predatorCountSlider">
-
-	  </div>
-
-	  <div class="forceAnnotationCol">
-	    <div class="sliderAnnotation">
-	      <h2>Force Sliders</h2>
-	    </div>
-
-	  </div>
-
-	</div>
-      <br><br><br>
-    </main>
-    <script src="/assets/boids/js/boids.js"></script>
-  </body>
+      if(window.scrollY >= target) {
+	  document.getElementById('classic-forces-container').style.display = 'none';
+	  document.getElementById('predator-forces-container').style.display = 'none';
+      }
+      if(window.scrollY <= target) {
+	  document.getElementById('classic-forces-container').style.display = 'block';
+	  document.getElementById('predator-forces-container').style.display = 'block';
+      }
+  };
+</script>
