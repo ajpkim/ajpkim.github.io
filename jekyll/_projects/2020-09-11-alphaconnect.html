@@ -9,7 +9,7 @@ link:
   - github
 ---
 
-<div id="outline-container-org44b8b0e" class="outline-2">
+<div id="outline-container-orgd59dcbc" class="outline-2">
 <h2 id="alphago-alphago-zero-alphazero-muzero">1. AlphaGo → AlphaGo Zero → <b>AlphaZero</b> → MuZero</h2>
 <div class="outline-text-2" id="text-alphago-alphago-zero-alphazero-muzero">
 <p>
@@ -26,9 +26,9 @@ These innovations all support a learning system that is capable of bootstrapping
 </div>
 </div>
 
-<div id="outline-container-org909b05e" class="outline-2">
-<h2 id="org909b05e">Table of Contents</h2>
-<div class="outline-text-2" id="text-org909b05e">
+<div id="outline-container-orgceb75ce" class="outline-2">
+<h2 id="orgceb75ce">Table of Contents</h2>
+<div class="outline-text-2" id="text-orgceb75ce">
 <ul class="org-ul">
 <li><a href="#alphago-alphago-zero-alphazero-muzero">1. AlphaGo → AlphaGo Zero → <b>AlphaZero</b> → MuZero</a></li>
 <li><a href="#the-intuitive-picture">2. The Intuitive Picture</a></li>
@@ -60,7 +60,7 @@ These innovations all support a learning system that is capable of bootstrapping
 </div>
 </div>
 
-<div id="outline-container-org7f429e3" class="outline-2">
+<div id="outline-container-orgf966505" class="outline-2">
 <h2 id="the-intuitive-picture">2. The Intuitive Picture</h2>
 <div class="outline-text-2" id="text-the-intuitive-picture">
 <p>
@@ -81,7 +81,7 @@ The result is a feedback cycle where the network guides the search process which
 </div>
 </div>
 
-<div id="outline-container-orgcd33959" class="outline-2">
+<div id="outline-container-orgef486bf" class="outline-2">
 <h2 id="move-selection">3. Move Selection</h2>
 <div class="outline-text-2" id="text-move-selection">
 <p>
@@ -119,7 +119,7 @@ Eventually, the normalized action counts (computed using \(N\) values) from the 
 </p>
 </div>
 
-<div id="outline-container-org7bf512c" class="outline-3">
+<div id="outline-container-org6f9c691" class="outline-3">
 <h3 id="mcts-simulation">3.1. MCTS simulation</h3>
 <div class="outline-text-3" id="text-mcts-simulation">
 <p>
@@ -223,7 +223,7 @@ And here's a high level view of the whole MCTS process (<code>dirichlet_alpha</c
 </div>
 </div>
 
-<div id="outline-container-orgf663684" class="outline-2">
+<div id="outline-container-orgccd1f89" class="outline-2">
 <h2 id="self-play-policy-improvement">4. Self-Play Policy Improvement</h2>
 <div class="outline-text-2" id="text-self-play-policy-improvement">
 <p>
@@ -231,7 +231,7 @@ The self-play training regime is what I find to be the most interesting part of 
 </p>
 </div>
 
-<div id="outline-container-orge629dcc" class="outline-3">
+<div id="outline-container-org98fb41d" class="outline-3">
 <h3 id="mcts-self-play">4.1. MCTS self-play</h3>
 <div class="outline-text-3" id="text-mcts-self-play">
 <p>
@@ -270,7 +270,7 @@ The network is randomly initialized and entirely trained on data generated throu
 </div>
 </div>
 
-<div id="outline-container-org1430f34" class="outline-3">
+<div id="outline-container-orgb0ae72e" class="outline-3">
 <h3 id="loss-and-learning">4.2. Loss and learning</h3>
 <div class="outline-text-3" id="text-loss-and-learning">
 <p>
@@ -333,7 +333,7 @@ In python (with regularization outsourced to the torch optimizer):
 </div>
 </div>
 
-<div id="outline-container-org539ef06" class="outline-2">
+<div id="outline-container-org1199e06" class="outline-2">
 <h2 id="the-network">5. The Network</h2>
 <div class="outline-text-2" id="text-the-network">
 <p>
@@ -341,7 +341,7 @@ With everything else now in place let's turn to the actual network architecture.
 </p>
 </div>
 
-<div id="outline-container-org1b119cc" class="outline-3">
+<div id="outline-container-orgc51c829" class="outline-3">
 <h3 id="game-state-encoding">5.1. Game state encoding</h3>
 <div class="outline-text-3" id="text-game-state-encoding">
 <p>
@@ -350,7 +350,7 @@ Go is played on a 19x19 board and AlphaZero is provided the game state as a (19x
 </div>
 </div>
 
-<div id="outline-container-orgc793698" class="outline-3">
+<div id="outline-container-org7c6f67f" class="outline-3">
 <h3 id="convolutional-layer">5.2. Convolutional layer</h3>
 <div class="outline-text-3" id="text-convolutional-layer">
 <p>
@@ -389,7 +389,7 @@ Implementation in pytorch (with less convolutional filters):
 </div>
 </div>
 
-<div id="outline-container-orgb060113" class="outline-3">
+<div id="outline-container-org9ec0879" class="outline-3">
 <h3 id="residual-blocks">5.3. Residual blocks</h3>
 <div class="outline-text-3" id="text-residual-blocks">
 <p>
@@ -430,7 +430,7 @@ Implementation in pytorch (again with less convolutional filters):
 </div>
 </div>
 
-<div id="outline-container-org8bae763" class="outline-3">
+<div id="outline-container-orgb89ea32" class="outline-3">
 <h3 id="value-head">5.4. Value head</h3>
 <div class="outline-text-3" id="text-value-head">
 <p>
@@ -470,7 +470,7 @@ Implementation in pytorch (different dimensions):
 </div>
 </div>
 
-<div id="outline-container-org82d46eb" class="outline-3">
+<div id="outline-container-orgee31476" class="outline-3">
 <h3 id="policy-head">5.5. Policy head</h3>
 <div class="outline-text-3" id="text-policy-head">
 <p>
@@ -507,7 +507,7 @@ Implementation in pytorch (different dimensions):
 </div>
 </div>
 
-<div id="outline-container-org821a9e0" class="outline-3">
+<div id="outline-container-org502458f" class="outline-3">
 <h3 id="putting-it-all-together">5.6. Putting it all together</h3>
 <div class="outline-text-3" id="text-putting-it-all-together">
 <p>
@@ -537,7 +537,7 @@ Implementation in pytorch (different number of residual blocks):
 </div>
 </div>
 
-<div id="outline-container-org6382f53" class="outline-2">
+<div id="outline-container-org5640595" class="outline-2">
 <h2 id="alphaconnect">6. AlphaConnect</h2>
 <div class="outline-text-2" id="text-alphaconnect">
 <p>
@@ -545,7 +545,7 @@ We've covered all the basics of AlphaZero, and I will now discuss the process of
 </p>
 </div>
 
-<div id="outline-container-orgc008ab3" class="outline-3">
+<div id="outline-container-org0e3c663" class="outline-3">
 <h3 id="hyperparameters">6.1. Hyperparameters</h3>
 <div class="outline-text-3" id="text-hyperparameters">
 <p>
@@ -598,7 +598,7 @@ horizontal_flip: True
 </div>
 </div>
 
-<div id="outline-container-org7cb54a9" class="outline-3">
+<div id="outline-container-org4fe3dcf" class="outline-3">
 <h3 id="multithreading">6.2. Multithreading</h3>
 <div class="outline-text-3" id="text-multithreading">
 <p>
@@ -608,7 +608,7 @@ The biggest weakness of AlphaConnect is that the system is single threaded and c
 </div>
 </div>
 
-<div id="outline-container-org69e12fb" class="outline-2">
+<div id="outline-container-org6a9def5" class="outline-2">
 <h2 id="looking-ahead">7. Looking Ahead</h2>
 <div class="outline-text-2" id="text-looking-ahead">
 <p>

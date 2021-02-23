@@ -41,5 +41,5 @@ navPages:
     url: /projects
   - title: thoughts
     url: /thoughts
-  - title: about
-    url: /about
+  # - title: about
+  #   url: /about
