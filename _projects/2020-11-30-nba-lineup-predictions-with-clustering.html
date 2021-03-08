@@ -5,11 +5,11 @@ date: 2020-11-30
 location: Franconia, New Hampshire, USA
 math: true
 link:
-  - https://github.com/ajpkim/nba-lineup-predictions-via-player-clustering
+  - https://github.com/ajpkim/nba-lineup-predictions-with-player-clustering
   - github
 ---
 
-<div id="outline-container-org2e26700" class="outline-2">
+<div id="outline-container-orgc2e8e2b" class="outline-2">
 <h2 id="1.-Project-Description">1. Project Description</h2>
 <div class="outline-text-2" id="text-1.-Project-Description">
 <p>
@@ -21,7 +21,7 @@ The inputs to the networks were lineup cluster profiles which were built by summ
 </p>
 </div>
 </div>
-<div id="outline-container-orgb45e7e8" class="outline-2">
+<div id="outline-container-orgabd44be" class="outline-2">
 <h2 id="Table-of-Contents">Table of Contents</h2>
 <div class="outline-text-2" id="text-Table-of-Contents">
 <ul class="org-ul">
@@ -53,7 +53,7 @@ The inputs to the networks were lineup cluster profiles which were built by summ
 </div>
 </div>
 
-<div id="outline-container-orgfeefbf7" class="outline-2">
+<div id="outline-container-org5f620d5" class="outline-2">
 <h2 id="2.-NBA-context">2. NBA Context</h2>
 <div class="outline-text-2" id="text-2.-NBA-context">
 <p>
@@ -82,7 +82,7 @@ The influence of the positional hierarchy is far-reaching. For example, many who
 </div>
 </div>
 
-<div id="outline-container-orgb6bc08f" class="outline-2">
+<div id="outline-container-org5304a22" class="outline-2">
 <h2 id="3.-Building-the-player-dataset">3. Building the Player Dataset</h2>
 <div class="outline-text-2" id="text-3.-Building-the-player-dataset">
 <p>
@@ -90,7 +90,7 @@ The first set of tasks was gathering the statistical data, cleaning it, combinin
 </p>
 </div>
 
-<div id="outline-container-orgd6b2e6e" class="outline-3">
+<div id="outline-container-org0562c6e" class="outline-3">
 <h3 id="3.1.-scraping-player-season-stats-&-biographical-data">3.1. Scraping player-season stats &amp; biographical data</h3>
 <div class="outline-text-3" id="text-3.1.-scraping-player-season-stats-&-biographical-data">
 <p>
@@ -244,7 +244,7 @@ Execute scraping:
 </div>
 </div>
 
-<div id="outline-container-orgeadab7c" class="outline-3">
+<div id="outline-container-orgf7f03fd" class="outline-3">
 <h3 id="3.2.-cleaning-the-data">3.2. Cleaning the data</h3>
 <div class="outline-text-3" id="text-3.2.-cleaning-the-data">
 <p>
@@ -281,7 +281,7 @@ At this point the raw player dataset had shape <code>(11162, 92)</code> with row
 </div>
 </div>
 
-<div id="outline-container-orgb01c292" class="outline-3">
+<div id="outline-container-org5dce7ef" class="outline-3">
 <h3 id="3.3.-transforming-the-data">3.3. Transforming the data</h3>
 <div class="outline-text-3" id="text-3.3.-transforming-the-data">
 <p>
@@ -321,7 +321,7 @@ the player's shooting ability</li>
 </div>
 </div>
 
-<div id="outline-container-org1616540" class="outline-3">
+<div id="outline-container-org559ddf0" class="outline-3">
 <h3 id="3.4.-principal-component-analysis-(PCA)">3.4. Principal component analysis (PCA)</h3>
 <div class="outline-text-3" id="text-3.4.-principal-component-analysis-(PCA)">
 <p>
@@ -337,7 +337,7 @@ After dropping some more columns (e.g. <code>age</code>, stats related to tradit
 </div>
 </div>
 
-<div id="outline-container-orgdc95385" class="outline-2">
+<div id="outline-container-orgcee6951" class="outline-2">
 <h2 id="4.-Clustering">4. Clustering</h2>
 <div class="outline-text-2" id="text-4.-Clustering">
 <p>
@@ -381,7 +381,7 @@ df_clusters.head()  <span class="org-comment-delimiter"># </span><span class="or
 </div>
 </div>
 
-<div id="outline-container-org44afcde" class="outline-3">
+<div id="outline-container-org44b2d9b" class="outline-3">
 <h3 id="4.1.-clusters-overview">4.1. Clusters overview</h3>
 <div class="outline-text-3" id="text-4.1.-clusters-overview">
 <p>
@@ -503,7 +503,7 @@ All the statistical, biographical, pca, and cluster label datasets were combined
 </div>
 </div>
 
-<div id="outline-container-orgac5dc39" class="outline-3">
+<div id="outline-container-org11daee5" class="outline-3">
 <h3 id="4.2.-PCA-plots-to-visualize-cluster-spacing">4.2. PCA plots to visualize cluster spacing</h3>
 <div class="outline-text-3" id="text-4.2.-PCA-plots-to-visualize-cluster-spacing">
 <p>
@@ -536,7 +536,7 @@ To get a rough visual intuition for the relative spacing of the clusters I plott
 </div>
 
 
-<div id="outline-container-org89fb1a7" class="outline-3">
+<div id="outline-container-orga2de361" class="outline-3">
 <h3 id="4.3.-clusters-vs-traditional-positions">4.3. Clusters vs traditional positions</h3>
 <div class="outline-text-3" id="text-4.3.-clusters-vs-traditional-positions">
 <p>
@@ -551,7 +551,7 @@ One of the first comparisons I looked into was the relationship between the clus
 </div>
 </div>
 
-<div id="outline-container-orgad68ca3" class="outline-3">
+<div id="outline-container-org3ed6edd" class="outline-3">
 <h3 id="4.4.-finances-&-player-counts">4.4. Finances &amp; player counts</h3>
 <div class="outline-text-3" id="text-4.4.-finances-&-player-counts">
 <p>
@@ -586,11 +586,11 @@ There are very few player-season representing cluster 10 ("variety ball handlers
 </div>
 </div>
 
-<div id="outline-container-org2183c63" class="outline-2">
+<div id="outline-container-org48f1616" class="outline-2">
 <h2 id="5.-Lineup-analysis">5. Lineup Analysis</h2>
 <div class="outline-text-2" id="text-5.-Lineup-analysis">
 </div>
-<div id="outline-container-org2d03628" class="outline-3">
+<div id="outline-container-orgb3fdb0b" class="outline-3">
 <h3 id="5.1.-scraping-lineup-data">5.1. Scraping lineup data</h3>
 <div class="outline-text-3" id="text-5.1.-scraping-lineup-data">
 <p>
@@ -764,7 +764,7 @@ Execute scraping:
 </div>
 </div>
 
-<div id="outline-container-orgdfb4398" class="outline-3">
+<div id="outline-container-org68c2707" class="outline-3">
 <h3 id="5.2.-building-lineup-cluster-profiles">5.2. Building lineup cluster profiles</h3>
 <div class="outline-text-3" id="text-5.2.-building-lineup-cluster-profiles">
 <p>
@@ -859,7 +859,7 @@ df4.to_csv(<span class="org-string">'datasets/master_4man_lineup_clusters_2000_2
 </div>
 </div>
 
-<div id="outline-container-orgecba0da" class="outline-3">
+<div id="outline-container-org25d9b02" class="outline-3">
 <h3 id="5.3.-lineup-correlations-&-salaries">5.3. Lineup correlations &amp; salaries</h3>
 <div class="outline-text-3" id="text-5.3.-lineup-correlations-&-salaries">
 <p>
@@ -922,7 +922,7 @@ A high lineup salary does not directly indicate high performance. However, there
 </div>
 </div>
 
-<div id="outline-container-org18b9cde" class="outline-3">
+<div id="outline-container-org670bff1" class="outline-3">
 <h3 id="5.4.-predicting-lineup-point-differentials">5.4. Predicting lineup point differentials</h3>
 <div class="outline-text-3" id="text-5.4.-predicting-lineup-point-differentials">
 <p>
@@ -1116,7 +1116,7 @@ For fun we can try bigger networks and watch the network quickly overfit and mem
 </div>
 </div>
 
-<div id="outline-container-orgd2bde64" class="outline-2">
+<div id="outline-container-org0c1453d" class="outline-2">
 <h2 id="6.-Wrapping-Up">6. Wrapping Up</h2>
 <div class="outline-text-2" id="text-6.-Wrapping-Up">
 <p>
