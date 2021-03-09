@@ -7,8 +7,10 @@ $color-silver: #c0c0c0;
 $color-light-grey: #d3d3d3;
 $color-dark-grey: #555555;
 $color-purple: #b6b3f5;
+$color-purple2: #a9a3ff;
 $color-pink: #ffbbe8;
 $color-soft-pink: #ffdbeb;
+$color-plum1: #eeaeee;  // Emacs color
 $color-light-baby-blue: #b1e3fa;
 $color-baby-blue: #acdbff;
 $color-navy: #101357;
@@ -16,15 +18,11 @@ $color-light-orange: #ffeab4;
 $color-light-green: #85eeac;
 $color-green: #73d8b2;
 $color-loud-green: #16ffbd;
-$color-dark-emacs-bg: #1a1a29;
-
-
-
+$color-mint: #83F3E6;
+$color-mind: #acffed;
 // $color-bg: $color-creamy-white;
-$color-bg: #121212; // Material design rec for dark mode bg
-// $color-bg: #121224;
-// $color-bg: $color-dark-emacs-bg;
-
+// $color-bg: #121212;
+$color-bg: #292a44;  // Emacs Rebecca theme bg
 
 $color-body: $color-soft-white;
 
@@ -43,7 +41,6 @@ $color-strong: $color-pink;
 $color-link: #8dc2ee;
 $color-code: $color-light-orange;
 $color-post-metadata: $color-light-grey;
-$color-src-bg: $color-dark-emacs-bg;
 $color-src-bg: $color-bg;
 // Tables
 $color-table-header: #30528d;
