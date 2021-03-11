@@ -10,8 +10,8 @@ link:
 ---
 
 <div id="outline-container-org936457c" class="outline-2">
-<h2 id="alphago-alphago-zero-alphazero-muzero">1. AlphaGo → AlphaGo Zero → <b>AlphaZero</b> → MuZero</h2>
-<div class="outline-text-2" id="text-alphago-alphago-zero-alphazero-muzero">
+<h2 id="1-AlphaGo-AlphaGo-Zero-AlphaZero-MuZero">1. AlphaGo → AlphaGo Zero → <b>AlphaZero</b> → MuZero</h2>
+<div class="outline-text-2" id="text-1-AlphaGo-AlphaGo-Zero-AlphaZero-MuZero">
 <p>
 In 2015 DeepMind's <a href="https://storage.googleapis.com/deepmind-media/alphago/AlphaGoNaturePaper.pdf">AlphaGo</a> beat one of the most decorated <a href="https://en.wikipedia.org/wiki/Go_(game)">Go</a> players of all time, Lee Sedol, 4-1 in a highly publicized match. The event brought Go within the domain of computer dominated games far earlier than many predicted given the complexity of the game. While the rules of Go are extremely simple, the number of possible board states that follow is over \(10^{170}\), an enormous number that illuminates why no computer program had ever beaten a professional Go player prior to AlphaGo. The vast complexity of the game and the futility of traditional search based methods leads many to perceive Go as the pinnacle of human intuition and strategy within the domain of games.
 </p>
@@ -27,42 +27,42 @@ These innovations all support a learning system that is capable of bootstrapping
 </div>
 
 <div id="outline-container-org3a8b93c" class="outline-2">
-<h2 id="org3a8b93c">Table of Contents</h2>
-<div class="outline-text-2" id="text-org3a8b93c">
+<h2 id="Table-of-Contents">Table of Contents</h2>
+<div class="outline-text-2" id="text-Table-of-Contents">
 <ul class="org-ul">
-<li><a href="#alphago-alphago-zero-alphazero-muzero">1. AlphaGo → AlphaGo Zero → <b>AlphaZero</b> → MuZero</a></li>
-<li><a href="#the-intuitive-picture">2. The Intuitive Picture</a></li>
-<li><a href="#move-selection">3. Move Selection</a>
+<li><a href="#1-AlphaGo-AlphaGo-Zero-AlphaZero-MuZero">1. AlphaGo → AlphaGo Zero → <b>AlphaZero</b> → MuZero</a></li>
+<li><a href="#2.-The-Intuitive-Picture">2. The Intuitive Picture</a></li>
+<li><a href="#3.-Move-Selection">3. Move Selection</a>
 <ul class="org-ul">
-<li><a href="#mcts-simulation">3.1. MCTS simulation</a></li>
+<li><a href="#3.1.-MCTS-simulation">3.1. MCTS simulation</a></li>
 </ul></li>
-<li><a href="#self-play-policy-improvement">4. Self-Play Policy Improvement</a>
+<li><a href="#4.-Self-Play-Policy-Improvement">4. Self-Play Policy Improvement</a>
 <ul class="org-ul">
-<li><a href="#mcts-self-play">4.1. MCTS self-play</a></li>
-<li><a href="#loss-and-learning">4.2. Loss and learning</a></li>
+<li><a href="#4.1.-MCTS-self-play">4.1. MCTS self-play</a></li>
+<li><a href="#4.2.-Loss-and-learning">4.2. Loss and learning</a></li>
 </ul></li>
-<li><a href="#the-network">5. The Network</a>
+<li><a href="#5.-The-Network">5. The Network</a>
 <ul class="org-ul">
-<li><a href="#game-state-encoding">5.1. Game state encoding</a></li>
-<li><a href="#convolutional-layer">5.2. Convolutional layer</a></li>
-<li><a href="#residual-blocks">5.3. Residual blocks</a></li>
-<li><a href="#value-head">5.4. Value head</a></li>
-<li><a href="#policy-head">5.5. Policy head</a></li>
-<li><a href="#putting-it-all-together">5.6. Putting it all together</a></li>
+<li><a href="#5.1.-Game-state-encoding">5.1. Game state encoding</a></li>
+<li><a href="#5.2.-Convolutional-layer">5.2. Convolutional layer</a></li>
+<li><a href="#5.3.-Residual-blocks">5.3. Residual blocks</a></li>
+<li><a href="#5.4.-Value-head">5.4. Value head</a></li>
+<li><a href="#5.5.-Policy-head">5.5. Policy head</a></li>
+<li><a href="#5.6.-Putting-it-all-together">5.6. Putting it all together</a></li>
 </ul></li>
-<li><a href="#alphaconnect">6. AlphaConnect</a>
+<li><a href="#6.-AlphaConnect">6. AlphaConnect</a>
 <ul class="org-ul">
-<li><a href="#hyperparameters">6.1. Hyperparameters</a></li>
-<li><a href="#multithreading">6.2. Multithreading</a></li>
+<li><a href="#6.1.-Hyperparameters">6.1. Hyperparameters</a></li>
+<li><a href="#6.2.-Multithreading">6.2. Multithreading</a></li>
 </ul></li>
-<li><a href="#looking-ahead">7. Looking Ahead</a></li>
+<li><a href="#7.-Looking-Ahead">7. Looking Ahead</a></li>
 </ul>
 </div>
 </div>
 
 <div id="outline-container-orge66740b" class="outline-2">
-<h2 id="the-intuitive-picture">2. The Intuitive Picture</h2>
-<div class="outline-text-2" id="text-the-intuitive-picture">
+<h2 id="2.-The-Intuitive-Picture">2. The Intuitive Picture</h2>
+<div class="outline-text-2" id="text-2.-The-Intuitive-Picture">
 <p>
 Before discussing the details I want to give a little more overview of how AlphaZero works at an intuitive level to help frame what follows. Traditional game engines like <a href="https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)">Deep Blue</a> or <a href="https://en.wikipedia.org/wiki/Stockfish_(chess)">StockFish</a> rely on deep searches in the game tree and hard-coded game-specific evaluation features to assess and find moves. In contrast to these less general methods, AlphaZero learns entirely from its own experience playing the game, adopting strategies that fare well and moving on from ones that fare poorly.
 </p>
@@ -82,8 +82,8 @@ The result is a feedback cycle where the network guides the search process which
 </div>
 
 <div id="outline-container-org852cda8" class="outline-2">
-<h2 id="move-selection">3. Move Selection</h2>
-<div class="outline-text-2" id="text-move-selection">
+<h2 id="3.-Move-Selection">3. Move Selection</h2>
+<div class="outline-text-2" id="text-3.-Move-Selection">
 <p>
 To select moves, AlphaZero uses a
 <a href="https://www.youtube.com/watch?v=UXW2yZndl7U">Monte-Carlo tree search
@@ -120,8 +120,8 @@ Eventually, the normalized action counts (computed using \(N\) values) from the 
 </div>
 
 <div id="outline-container-orgd713bab" class="outline-3">
-<h3 id="mcts-simulation">3.1. MCTS simulation</h3>
-<div class="outline-text-3" id="text-mcts-simulation">
+<h3 id="3.1.-MCTS-simulation">3.1. MCTS simulation</h3>
+<div class="outline-text-3" id="text-3.1.-MCTS-simulation">
 <p>
 The goal of the MCTS simulations is to improve on the network's preliminary action probabilities and discover paths that lead to higher state values and winning the game. To accomplish this the PUCT algorithm must balance exploring possible moves with exploiting what it already believes are worthwhile paths. At each decision point the algorithm selects the move that maximizes \(Q + U\) where \(Q\) is the mean value of the next state and \(U\) is a function of \(P\) and \(N\) which controls the exploration vs. exploitation tradeoff. Initially \(U\) dominates and forces exploration, but as more simulations are executed \(Q\) comes to dominate and states with higher values are selected:
 </p>
@@ -224,16 +224,16 @@ And here's a high level view of the whole MCTS process (<code>dirichlet_alpha</c
 </div>
 
 <div id="outline-container-orgc47844e" class="outline-2">
-<h2 id="self-play-policy-improvement">4. Self-Play Policy Improvement</h2>
-<div class="outline-text-2" id="text-self-play-policy-improvement">
+<h2 id="4.-Self-Play-Policy-Improvement">4. Self-Play Policy Improvement</h2>
+<div class="outline-text-2" id="text-4.-Self-Play-Policy-Improvement">
 <p>
 The self-play training regime is what I find to be the most interesting part of AlphaZero. The ability to learn solely from its own experience playing games against itself allows for more general learning that is unconstrained by human knowledge of the domain. AlphaZero requires no human feedback, hard-coded evaluation features, nor initial game data to achieve superhuman ability.
 </p>
 </div>
 
 <div id="outline-container-org0999c02" class="outline-3">
-<h3 id="mcts-self-play">4.1. MCTS self-play</h3>
-<div class="outline-text-3" id="text-mcts-self-play">
+<h3 id="4.1.-MCTS-self-play">4.1. MCTS self-play</h3>
+<div class="outline-text-3" id="text-4.1.-MCTS-self-play">
 <p>
 The network is randomly initialized and entirely trained on data generated through games of self-play using the guided MCTS search process described above to select moves and find a policy \(\pi\). For each time-step \(t\) of a self-play game, a training example \((s_t, \pi_t, z_t)\) consisting of game state, MCTS policy, and game outcome from the perspective of the player at step \(t\) is generated and stored. Game outcomes are necessarily added after the game has been completed. A replay buffer stores all the training data from recent games to help reduce correlations in the training data and support more stable learning.
 </p>
@@ -271,8 +271,8 @@ The network is randomly initialized and entirely trained on data generated throu
 </div>
 
 <div id="outline-container-org226c6d3" class="outline-3">
-<h3 id="loss-and-learning">4.2. Loss and learning</h3>
-<div class="outline-text-3" id="text-loss-and-learning">
+<h3 id="4.2.-Loss-and-learning">4.2. Loss and learning</h3>
+<div class="outline-text-3" id="text-4.2.-Loss-and-learning">
 <p>
 After some number of self-play games, a batch of training examples is drawn uniformly from the replay buffer and used to train the network. Recall that the network outputs a tuple of prior probabilities and a game outcome prediction given a state, \((p, v) = f_\theta (s)\). The relevant quantities for training are:
 </p>
@@ -334,16 +334,16 @@ In python (with regularization outsourced to the torch optimizer):
 </div>
 
 <div id="outline-container-orgff0e1ac" class="outline-2">
-<h2 id="the-network">5. The Network</h2>
-<div class="outline-text-2" id="text-the-network">
+<h2 id="5.-The-Network">5. The Network</h2>
+<div class="outline-text-2" id="text-5.-The-Network">
 <p>
 With everything else now in place let's turn to the actual network architecture. AlphaZero is a deep residual neural network with value and policy heads. The network takes in the raw game state and outputs a tuple consisting of a preliminary policy vector of probabilities over the action space and a value estimate of the expected outcome (win, lose, draw). There are 4 main components to the AlphaZero architecture: 1. convolutional layer 2. residual blocks 3. value head 4. policy head
 </p>
 </div>
 
 <div id="outline-container-orge9ac940" class="outline-3">
-<h3 id="game-state-encoding">5.1. Game state encoding</h3>
-<div class="outline-text-3" id="text-game-state-encoding">
+<h3 id="5.1.-Game-state-encoding">5.1. Game state encoding</h3>
+<div class="outline-text-3" id="text-5.1.-Game-state-encoding">
 <p>
 Go is played on a 19x19 board and AlphaZero is provided the game state as a (19x19x17) tensor in the case of Go (different games require different dimensions). The 17 channels encode the position of each players pieces in the current and previous 7 positions as well as whose turn it is. The rules of Go demand that historical board information is included in the input as the current board state alone isn't sufficient to describe the global game state. In my implementation I encoded the game state as a (6x7x3) tensor given that connect4 is played on a 6x7 grid and historical information doesn't impact the game state. Two separate channels represent each player's pieces (0 indicating empty, and 1 indicating a piece at the position), and the last channel is used to indicate whose turn it is.
 </p>
@@ -351,8 +351,8 @@ Go is played on a 19x19 board and AlphaZero is provided the game state as a (19x
 </div>
 
 <div id="outline-container-org2db01b0" class="outline-3">
-<h3 id="convolutional-layer">5.2. Convolutional layer</h3>
-<div class="outline-text-3" id="text-convolutional-layer">
+<h3 id="5.2.-Convolutional-layer">5.2. Convolutional layer</h3>
+<div class="outline-text-3" id="text-5.2.-Convolutional-layer">
 <p>
 The pairing of a deep convolutional neural network and reinforcement learning in <a href="https://arxiv.org/pdf/1312.5602v1.pdf">solving Atari games</a> using raw pixel data was an earlier breakthrough from DeepMind. AlphaZero similarly leverages convolutional layers throughout the network to help extract useful features from the raw game state. The initial component of the network is a sole convolutional block.
 </p>
@@ -390,8 +390,8 @@ Implementation in pytorch (with less convolutional filters):
 </div>
 
 <div id="outline-container-orgeb49f61" class="outline-3">
-<h3 id="residual-blocks">5.3. Residual blocks</h3>
-<div class="outline-text-3" id="text-residual-blocks">
+<h3 id="5.3.-Residual-blocks">5.3. Residual blocks</h3>
+<div class="outline-text-3" id="text-5.3.-Residual-blocks">
 <p>
 The majority of the network consists of residual blocks. These blocks employ skip connections which feed the outputs of each layer directly into the next layer as well as into layers that are deeper in the network. Skip connections protect against degradation that can occur as networks get deeper and are used throughout the AlphaZero architecture.
 </p>
@@ -431,8 +431,8 @@ Implementation in pytorch (again with less convolutional filters):
 </div>
 
 <div id="outline-container-orgae4a347" class="outline-3">
-<h3 id="value-head">5.4. Value head</h3>
-<div class="outline-text-3" id="text-value-head">
+<h3 id="5.4.-Value-head">5.4. Value head</h3>
+<div class="outline-text-3" id="text-5.4.-Value-head">
 <p>
 After the residual blocks, the network splits into two final processing blocks which output the value estimate and action probabilities. In AlphaGo and AlphaGo Zero, the value head estimated and optimized the probability of winning from a given game state. To handle games with draws such as chess and shogi, AlphaZero's value head instead predicts the expected game outcome (win, lose, draw). The value estimate is used in the search process as an approximate value for the state, helping to guide the search to higher value states.
 </p>
@@ -471,8 +471,8 @@ Implementation in pytorch (different dimensions):
 </div>
 
 <div id="outline-container-orgbe73983" class="outline-3">
-<h3 id="policy-head">5.5. Policy head</h3>
-<div class="outline-text-3" id="text-policy-head">
+<h3 id="5.5.-Policy-head">5.5. Policy head</h3>
+<div class="outline-text-3" id="text-5.5.-Policy-head">
 <p>
 The policy head outputs action probabilities for each action given a game state. These action probabilities help guide the MCTS search. The search process improves on the initial prior probabilities received from the network.
 </p>
@@ -508,8 +508,8 @@ Implementation in pytorch (different dimensions):
 </div>
 
 <div id="outline-container-orgbb899cd" class="outline-3">
-<h3 id="putting-it-all-together">5.6. Putting it all together</h3>
-<div class="outline-text-3" id="text-putting-it-all-together">
+<h3 id="5.6.-Putting-it-all-together">5.6. Putting it all together</h3>
+<div class="outline-text-3" id="text-5.6.-Putting-it-all-together">
 <p>
 Implementation in pytorch (different number of residual blocks):
 </p>
@@ -538,16 +538,16 @@ Implementation in pytorch (different number of residual blocks):
 </div>
 
 <div id="outline-container-orgf8565a3" class="outline-2">
-<h2 id="alphaconnect">6. AlphaConnect</h2>
-<div class="outline-text-2" id="text-alphaconnect">
+<h2 id="6.-AlphaConnect">6. AlphaConnect</h2>
+<div class="outline-text-2" id="text-6.-AlphaConnect">
 <p>
 We've covered all the basics of AlphaZero, and I will now discuss the process of implementing my own version, AlphaConnect, to play connect4. Connect4 is a solved game and the first player is capable of a guaranteed win if they play correctly. Although AlphaConnect did not reach this optimal level of performance, over the course of 12k self-play games and learning steps AlphaConnect did reach a strong level of performance. I trained the network on google colab GPUs over the course of a couple weeks. Each colab instance consisted of 600 self-play games and learning steps, and ended with an evaluation phase comparing the latest version and the version from 600 steps ago. Each session of 600 self-play games and 200 evaluation games took about 8 hours, summing to slightly above 130 hours in total. The system does not utilize GPU capacity effectively.
 </p>
 </div>
 
 <div id="outline-container-orge4eef2c" class="outline-3">
-<h3 id="hyperparameters">6.1. Hyperparameters</h3>
-<div class="outline-text-3" id="text-hyperparameters">
+<h3 id="6.1.-Hyperparameters">6.1. Hyperparameters</h3>
+<div class="outline-text-3" id="text-6.1.-Hyperparameters">
 <p>
 The time and compute costs of searching for the best hyperparameters led me to use similar hyperparameters as AlphaZero with adjustments based on the scaled down nature of my project. I followed the AlphaZero learning rate schedule with step durations adjusted to match my hastened learning process. The learning rate started at 0.2 and was multiplied by 0.1 every 3,000 learning steps, ending at 0.0002.
 </p>
@@ -599,8 +599,8 @@ horizontal_flip: True
 </div>
 
 <div id="outline-container-org96dae57" class="outline-3">
-<h3 id="multithreading">6.2. Multithreading</h3>
-<div class="outline-text-3" id="text-multithreading">
+<h3 id="6.2.-Multithreading">6.2. Multithreading</h3>
+<div class="outline-text-3" id="text-6.2.-Multithreading">
 <p>
 The biggest weakness of AlphaConnect is that the system is single threaded and cannot make efficient use of gpu resources as a result. In contrast, AlphaZero uses a parallel MCTS algorithm in which multiple threads execute MCTS simulations at the same time. Parallelization means requests to the network can be batched together, games are completed faster, and computational resources are optimized. My single threaded version is simpler and less efficient. If I needed to scale AlphaConnect and train for much longer then it would be necessary to implement multithreading. Multithreading MCTS requires some care and uses virtual losses, temporary losses assigned to edges being explored by a thread, to circumvent the deterministic nature of the MCTS algorithm and allow the threads to effectively explore the game tree. More details can be found <a href="https://dke.maastrichtuniversity.nl/m.winands/documents/multithreadedMCTS2.pdf">here</a>.
 </p>
@@ -609,8 +609,8 @@ The biggest weakness of AlphaConnect is that the system is single threaded and c
 </div>
 
 <div id="outline-container-org62b9447" class="outline-2">
-<h2 id="looking-ahead">7. Looking Ahead</h2>
-<div class="outline-text-2" id="text-looking-ahead">
+<h2 id="7.-Looking-Ahead">7. Looking Ahead</h2>
+<div class="outline-text-2" id="text-7.-Looking-Ahead">
 <p>
 Working on this project was a fun way to learn more about how these game playing deep reinforcement learning systems work. Games like Go, chess, and connect4 are well-defined and the systems I discussed (AlphaZero, AlphaConnect) are given perfect models of their world via the rules of the game. These domains are a far cry from the complexity of the outside world and from situations in which an agent must also learn the dynamics of their environment in addition to a good policy (as MuZero does). Still, games can be difficult, and mastering them requires some powerful forms of intelligence. Learning solely from experience in these game environments is an important step in being able to learn in more complex environments and solve less well-defined tasks.
 </p>
