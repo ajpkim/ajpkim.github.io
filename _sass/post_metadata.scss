@@ -1,4 +1,7 @@
 #post-metadata {
+
+    font-family: $font-mono;
+    
     h1 {
 	margin-bottom: 1rem;
     }
@@ -8,5 +11,7 @@
     p {
 	color: $color-post-metadata;
 	margin-top: 1rem;
+	line-height: 1.2;
+	font-weight: 400;
     }
 }

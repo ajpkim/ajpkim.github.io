@@ -14,12 +14,13 @@ $color-plum1: #eeaeee;  // Emacs color
 $color-light-baby-blue: #b1e3fa;
 $color-baby-blue: #acdbff;
 $color-navy: #101357;
-$color-light-orange: #ffeab4; 
+$color-light-orange: #ffeab4;
 $color-light-green: #85eeac;
 $color-green: #73d8b2;
 $color-loud-green: #16ffbd;
 $color-mint: #83F3E6;
-$color-mind: #acffed;
+$color-mint2: #acffed;
+//$color-light-orange: $color-mint;
 // $color-bg: $color-creamy-white;
 // $color-bg: #121212;
 $color-bg: #292a44;  // Emacs Rebecca theme bg
@@ -34,8 +35,6 @@ $color-h4: $color-body;
 $color-h5: $color-body;
 $color-h6: $color-body;
 
-// Strong
-$color-strong: $color-pink;
 
 // Elements
 $color-link: #8dc2ee;
@@ -48,7 +47,7 @@ $color-table-even-rows: #3c434e;
 $color-table-odd-rows: #2e343d;
 
 // // Fonts
-$font-sans: "Open Sans", "Tahoma", "Verdana", "sans-serif";
+$font-sans: "Ubuntu", "sans-serif";
 $font-serif: "Crimson Text", "Cambria Math", "Oswald";
 // $font-mono: "DejaVu Sans Mono"
 $font-mono: "Source Code Pro", monospace;

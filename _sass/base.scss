@@ -13,16 +13,20 @@ body {
     font-family: $font-sans;
     color: $color-body;
     background-color: $color-bg;
-    font-size: 2.0rem;
+    font-size: 2.2rem;
 }
 
-p {
-    font-weight: 500;
-    line-height: 3rem;
+p, ul, ol {
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 strong {
-    color: $color-strong;
+    color: $color-pink;
+}
+
+b {
+    color: $color-plum1;
 }
 
 h1 {
@@ -37,9 +41,6 @@ h2 {
     font-size: 3.5rem;
     margin: 3rem 0;
 
-  strong {
-    font-weight: 610;  // standard is too strong.
-  }
 }
 
 h3 {
@@ -57,16 +58,14 @@ h4 {
 }
 
 a {
-    color: $color-link;
-    text-decoration: none;
-
-    strong {
-	color: $color-link;
-    }
+    font-weight: 400;
+    text-decoration: underline $color-link 2px;
 }
+
 
 a:hover {
     text-decoration: underline;
+    color: $color-link;
 }
 
 // Org exports images in a <div class="figure"> element
