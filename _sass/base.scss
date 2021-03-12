@@ -56,6 +56,11 @@ h4 {
     margin: 2.25rem;
 }
 
+sup a {
+	color: $color-link;
+	text-decoration: none;
+}
+
 a {
     font-weight: 400;
     text-decoration: underline $color-link 2px;

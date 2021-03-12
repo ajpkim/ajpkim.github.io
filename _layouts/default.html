@@ -13,16 +13,21 @@
     {% include mathjax-support.html %}
     {% endif %}
     <title>{{page.title}}</title>
+    
   </head>
 
   <body>
     <div class="container">
       {% include navbar.html %}
-      
+      {% if page.floating_toc %}
+      <button id=toc-btn>+</button>
+      {% endif %}
       <div class="content-container">
 	{{ content }}
       </div>
     </div>
+    {% if page.floating_toc %}
+    <script src='{{ site.baseurl }}/assets/js/floating-toc.js'></script>
+    {% endif %}
   </body>
-
   </html>

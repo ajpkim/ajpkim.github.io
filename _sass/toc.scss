@@ -1,44 +1,186 @@
+// Floating hidden TOC
+// Uses toc-btn js script in assets based on checkbox status to
+// show/hide the #text-Table-of-Contents
 
+@import "vars";
+
+// Default body toc
 #text-Table-of-Contents {
     a {
 	color: $color-link;
 	text-decoration: none;
     }
-
     a:hover {
 	text-decoration: underline $color-link;
     }
 }
 
-/*TOC inspired by https://orgmode.org/worg/ */
-// Base  https://alhassy.github.io/AlBasmala.html#Ensuring-Useful-HTML-Anchors
-// #text-Table-of-Contents {
+
+#toc-btn {
+    position: fixed;
+    top: 3rem;
+    left: 1rem;
+    background-color: transparent;
+    border: none;
+    color: $color-green;
+    font-size: 2em;
+    box-shadow: none;
+}
+
+#toc-btn:active,
+#toc-btn:focus,
+#toc-btn:focus:active {
+    outline: 0;
+    box-shadow: none;
+}
+
+#floating-toc {
+    opacity: 0.9;
+    display: none;
+    position: fixed;
+    font-size: .85em;
+    top: 4em;
+    left: 1px;
+    bottom: 1px;
+    background-color: $color-bg;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-width: 60%;
+    font-weight: normal;
+
+    a {
+	font-size: 1.8rem;
+	color: $color-link;
+	text-decoration: none;
+    }
+    a:hover {
+	text-decoration: underline $color-link;
+    }
+}
+
+#floating-toc  > ul {
+    border: 3px $color-grey solid;
+    padding-right: 1rem;
+}
+
+@media only screen and (max-width: 900px) {
+    #toc-btn {
+        display: none;
+    }
+    #floating-toc {
+	display: none;
+    }
+}
+
+
+// // /*TOC inspired by https://orgmode.org/worg/ */
+// // // Base  https://alhassy.github.io/AlBasmala.html#Ensuring-Useful-HTML-Anchors
+// // #text-Table-of-Contents {
+// //     /* Place the toc in the top right corner */
+// //     position: fixed; left: 0em; top: 0em;
+// //     margin-top: 12rem; /* offset from the top of the screen */
+
+// //     /* It shrinks and grows as necessary */
+// //     padding: 0 !important;
+// //     width: auto !important;
+// //     min-width: auto !important;
+
+// //     font-size: 2rem;
+// //     background: $color-bg;
+// //     text-align: left;
+
+// //     box-shadow: 0 0 1em #777777;
+// //     -webkit-box-shadow: 0 0 1em #777777;
+// //     -moz-box-shadow: 0 0 1em #777777;
+// //     -webkit-border-bottom-left-radius: 5px;
+// //     -moz-border-radius-bottomleft: 5px;
+
+// //     /* Ensure doesn't flow off the screen when expanded */
+// //     max-height: 80%;
+// //     overflow: auto;
+
+// //     a {
+// // 	font-size: 1.8rem;
+// // 	color: $color-link;
+// // 	text-decoration: none;
+// //     }
+
+// //     a:hover {
+// // 	text-decoration: underline $color-link;
+// //     }
+// // }
+
+// // // /* How big is the text “Table of Contents” and space around it */
+// // // #text-Table-of-Contents h2 {
+// // //     font-size: 13pt;
+// // //     max-width: 9em;
+// // //     border: 0;
+// // //     font-weight: normal;
+// // //     padding-left: 0.5em;
+// // //     padding-right: 0.5em;
+// // //     padding-top: 0.05em;
+// // //     padding-bottom: 0.05em;
+// // // }
+
+// // // Intially have the TOC folded up; show it if the mouse hovers it
+// // #text-Table-of-Contents {
+// //     opacity: 0;
+// //     display: block;
+// //     text-align: left;
+// // }
+
+// // #text-Table-of-Contents:hover {
+// //     opacity: 0.9;
+// //     display: block;
+// //   //  padding: 0.5em;
+// // //    margin-top: -1.5em;
+// // }
+
+
+// //////////////////////////////////////////////////
+
+// // #text-Table-of-Contents {
+// //   position: fixed;
+// //   right: 0;
+// //   top: 0;
+// //   background-color:#FFF;
+// // }
+
+// // #text-Table-of-Contents #full { display: none; } /* Hide the full TEXT-TABLE-OF-CONTENTS by default */
+
+// // #text-Table-of-Contents:hover #full{
+// //   display: block; /* Show it on hover */
+// // }
+
+// //////////////////////////////////////////////////
+// /*TOC inspired by https://orgmode.org/worg/ */
+// #table-of-contents {
 //     /* Place the toc in the top right corner */
 //     position: fixed; right: 0em; top: 0em;
 //     margin-top: 120px; /* offset from the top of the screen */
-    
+
 //     /* It shrinks and grows as necessary */
 //     padding: 0em !important;
 //     width: auto !important;
 //     min-width: auto !important;
-    
-//     font-size: 2rem;
+
+//     font-size: 10pt;
 //     background: white;
-//     text-align: left;
-    
+//     line-height: 12pt;
+//     text-align: right;
+
 //     box-shadow: 0 0 1em #777777;
 //     -webkit-box-shadow: 0 0 1em #777777;
 //     -moz-box-shadow: 0 0 1em #777777;
 //     -webkit-border-bottom-left-radius: 5px;
 //     -moz-border-radius-bottomleft: 5px;
-    
+
 //     /* Ensure doesn't flow off the screen when expanded */
 //     max-height: 80%;
-//     overflow: auto;
-// }
+//     overflow: auto;}
 
 // /* How big is the text “Table of Contents” and space around it */
-// #text-Table-of-Contents h2 {
+// #table-of-contents h2 {
 //     font-size: 13pt;
 //     max-width: 9em;
 //     border: 0;
@@ -48,12 +190,12 @@
 //     padding-top: 0.05em;
 //     padding-bottom: 0.05em; }
 
-// // Intially have the TOC folded up; show it if the mouse hovers it
-// // #text-Table-of-Contents {
-// //     display: none;
-// //     text-align: left; }
+// /* Intially have the TOC folded up; show it if the mouse hovers it */
+// #text-Table-of-Contents {
+//     display: none;
+//     text-align: left; }
 
-// // #text-Table-of-Contents:hover {
-// //     display: block;
-// //     padding: 0.5em;
-// //     margin-top: -1.5em; }
+// #text-Table-of-Contents:hover {
+//     display: block;
+//     padding: 0.5em;
+//     margin-top: -1.5em; }
