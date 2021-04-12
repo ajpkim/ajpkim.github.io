@@ -6,11 +6,11 @@ date: 2020-09-11
 math: true
 floating_toc: true
 link:
-  - https://github.com/ajpkim/alpha_connect4
+  - https://github.com/ajpkim/AlphaConnect
   - github
 ---
 
-<div id="outline-container-org936457c" class="outline-2">
+<div id="outline-container-1-AlphaGo-AlphaGo-Zero-AlphaZero-MuZero" class="outline-2">
 <h2 id="1-AlphaGo-AlphaGo-Zero-AlphaZero-MuZero">1. AlphaGo → AlphaGo Zero → <b>AlphaZero</b> → MuZero</h2>
 <div class="outline-text-2" id="text-1-AlphaGo-AlphaGo-Zero-AlphaZero-MuZero">
 <p>
@@ -22,12 +22,12 @@ DeepMind overcame the traditional obstacles posed by Go by pairing a deep neural
 </p>
 
 <p>
-These innovations all support a learning system that is capable of bootstrapping knowledge from its own experience and achieving mastery across many environments without needing any hard-coded domain knowledge or initial training data. To better understand how these systems work I recently implemented my own AlphaZero inspired deep RL system that learns <a href="https://en.wikipedia.org/wiki/Connect_Four">connect4</a> entirely through self-play and which can be extended to other adversarial games. Here, I'll walk through the key concepts (move selection and MCTS, self-play, training, model architecture) behind AlphaZero with code examples using pytorch. My implementation is a shallower version of the original architecture with some minor differences which I will point out as they come up.
+These innovations all support a learning system that is capable of bootstrapping knowledge from its own experience and achieving mastery across many environments without needing any hard-coded domain knowledge nor initial training data. To better understand how these systems work I recently implemented my own AlphaZero inspired deep RL system that learns <a href="https://en.wikipedia.org/wiki/Connect_Four">connect4</a> entirely through self-play and which can be extended to other adversarial games. Here, I'll walk through the key concepts (move selection and MCTS, self-play, training, model architecture) behind AlphaZero with code examples using pytorch. My implementation is a shallower version of the original architecture with some minor differences which I will point out as they come up.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org3a8b93c" class="outline-2">
+<div id="outline-container-Table-of-Contents" class="outline-2">
 <h2 id="Table-of-Contents">Table of Contents</h2>
 <div class="outline-text-2" id="text-Table-of-Contents">
 <ul class="org-ul">
@@ -61,11 +61,11 @@ These innovations all support a learning system that is capable of bootstrapping
 </div>
 </div>
 
-<div id="outline-container-orge66740b" class="outline-2">
+<div id="outline-container-2.-The-Intuitive-Picture" class="outline-2">
 <h2 id="2.-The-Intuitive-Picture">2. The Intuitive Picture</h2>
 <div class="outline-text-2" id="text-2.-The-Intuitive-Picture">
 <p>
-Before discussing the details I want to give a little more overview of how AlphaZero works at an intuitive level to help frame what follows. Traditional game engines like <a href="https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)">Deep Blue</a> or <a href="https://en.wikipedia.org/wiki/Stockfish_(chess)">StockFish</a> rely on deep searches in the game tree and hard-coded game-specific evaluation features to assess and find moves. In contrast to these less general methods, AlphaZero learns entirely from its own experience playing the game, adopting strategies that fare well and moving on from ones that fare poorly.
+Before discussing the details I want to give a little more overview of how AlphaZero works at an intuitive level to help frame what follows. Traditional game engines like <a href="https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)">Deep Blue</a> and <a href="https://en.wikipedia.org/wiki/Stockfish_(chess)">StockFish</a> rely on deep searches in the game tree and hard-coded game-specific evaluation features to assess and find moves. In contrast to these less general methods, AlphaZero learns entirely from its own experience playing the game, adopting strategies that fare well and moving on from ones that fare poorly.
 </p>
 
 <p>
@@ -82,7 +82,7 @@ The result is a feedback cycle where the network guides the search process which
 </div>
 </div>
 
-<div id="outline-container-org852cda8" class="outline-2">
+<div id="outline-container-3.-Move-Selection" class="outline-2">
 <h2 id="3.-Move-Selection">3. Move Selection</h2>
 <div class="outline-text-2" id="text-3.-Move-Selection">
 <p>
@@ -120,7 +120,7 @@ Eventually, the normalized action counts (computed using \(N\) values) from the 
 </p>
 </div>
 
-<div id="outline-container-orgd713bab" class="outline-3">
+<div id="outline-container-3.1.-MCTS-simulation" class="outline-3">
 <h3 id="3.1.-MCTS-simulation">3.1. MCTS simulation</h3>
 <div class="outline-text-3" id="text-3.1.-MCTS-simulation">
 <p>
@@ -224,7 +224,7 @@ And here's a high level view of the whole MCTS process (<code>dirichlet_alpha</c
 </div>
 </div>
 
-<div id="outline-container-orgc47844e" class="outline-2">
+<div id="outline-container-4.-Self-Play-Policy-Improvement" class="outline-2">
 <h2 id="4.-Self-Play-Policy-Improvement">4. Self-Play Policy Improvement</h2>
 <div class="outline-text-2" id="text-4.-Self-Play-Policy-Improvement">
 <p>
@@ -232,7 +232,7 @@ The self-play training regime is what I find to be the most interesting part of 
 </p>
 </div>
 
-<div id="outline-container-org0999c02" class="outline-3">
+<div id="outline-container-4.1.-MCTS-self-play" class="outline-3">
 <h3 id="4.1.-MCTS-self-play">4.1. MCTS self-play</h3>
 <div class="outline-text-3" id="text-4.1.-MCTS-self-play">
 <p>
@@ -271,7 +271,7 @@ The network is randomly initialized and entirely trained on data generated throu
 </div>
 </div>
 
-<div id="outline-container-org226c6d3" class="outline-3">
+<div id="outline-container-4.2.-Loss-and-learning" class="outline-3">
 <h3 id="4.2.-Loss-and-learning">4.2. Loss and learning</h3>
 <div class="outline-text-3" id="text-4.2.-Loss-and-learning">
 <p>
@@ -334,7 +334,7 @@ In python (with regularization outsourced to the torch optimizer):
 </div>
 </div>
 
-<div id="outline-container-orgff0e1ac" class="outline-2">
+<div id="outline-container-5.-The-Network" class="outline-2">
 <h2 id="5.-The-Network">5. The Network</h2>
 <div class="outline-text-2" id="text-5.-The-Network">
 <p>
@@ -342,7 +342,7 @@ With everything else now in place let's turn to the actual network architecture.
 </p>
 </div>
 
-<div id="outline-container-orge9ac940" class="outline-3">
+<div id="outline-container-5.1.-Game-state-encoding" class="outline-3">
 <h3 id="5.1.-Game-state-encoding">5.1. Game state encoding</h3>
 <div class="outline-text-3" id="text-5.1.-Game-state-encoding">
 <p>
@@ -351,7 +351,7 @@ Go is played on a 19x19 board and AlphaZero is provided the game state as a (19x
 </div>
 </div>
 
-<div id="outline-container-org2db01b0" class="outline-3">
+<div id="outline-container-5.2.-Convolutional-layer" class="outline-3">
 <h3 id="5.2.-Convolutional-layer">5.2. Convolutional layer</h3>
 <div class="outline-text-3" id="text-5.2.-Convolutional-layer">
 <p>
@@ -390,7 +390,7 @@ Implementation in pytorch (with less convolutional filters):
 </div>
 </div>
 
-<div id="outline-container-orgeb49f61" class="outline-3">
+<div id="outline-container-5.3.-Residual-blocks" class="outline-3">
 <h3 id="5.3.-Residual-blocks">5.3. Residual blocks</h3>
 <div class="outline-text-3" id="text-5.3.-Residual-blocks">
 <p>
@@ -431,7 +431,7 @@ Implementation in pytorch (again with less convolutional filters):
 </div>
 </div>
 
-<div id="outline-container-orgae4a347" class="outline-3">
+<div id="outline-container-5.4.-Value-head" class="outline-3">
 <h3 id="5.4.-Value-head">5.4. Value head</h3>
 <div class="outline-text-3" id="text-5.4.-Value-head">
 <p>
@@ -471,7 +471,7 @@ Implementation in pytorch (different dimensions):
 </div>
 </div>
 
-<div id="outline-container-orgbe73983" class="outline-3">
+<div id="outline-container-5.5.-Policy-head" class="outline-3">
 <h3 id="5.5.-Policy-head">5.5. Policy head</h3>
 <div class="outline-text-3" id="text-5.5.-Policy-head">
 <p>
@@ -508,7 +508,7 @@ Implementation in pytorch (different dimensions):
 </div>
 </div>
 
-<div id="outline-container-orgbb899cd" class="outline-3">
+<div id="outline-container-5.6.-Putting-it-all-together" class="outline-3">
 <h3 id="5.6.-Putting-it-all-together">5.6. Putting it all together</h3>
 <div class="outline-text-3" id="text-5.6.-Putting-it-all-together">
 <p>
@@ -538,7 +538,7 @@ Implementation in pytorch (different number of residual blocks):
 </div>
 </div>
 
-<div id="outline-container-orgf8565a3" class="outline-2">
+<div id="outline-container-6.-AlphaConnect" class="outline-2">
 <h2 id="6.-AlphaConnect">6. AlphaConnect</h2>
 <div class="outline-text-2" id="text-6.-AlphaConnect">
 <p>
@@ -546,7 +546,7 @@ We've covered all the basics of AlphaZero, and I will now discuss the process of
 </p>
 </div>
 
-<div id="outline-container-orge4eef2c" class="outline-3">
+<div id="outline-container-6.1.-Hyperparameters" class="outline-3">
 <h3 id="6.1.-Hyperparameters">6.1. Hyperparameters</h3>
 <div class="outline-text-3" id="text-6.1.-Hyperparameters">
 <p>
@@ -599,7 +599,7 @@ horizontal_flip: True
 </div>
 </div>
 
-<div id="outline-container-org96dae57" class="outline-3">
+<div id="outline-container-6.2.-Multithreading" class="outline-3">
 <h3 id="6.2.-Multithreading">6.2. Multithreading</h3>
 <div class="outline-text-3" id="text-6.2.-Multithreading">
 <p>
@@ -609,7 +609,7 @@ The biggest weakness of AlphaConnect is that the system is single threaded and c
 </div>
 </div>
 
-<div id="outline-container-org62b9447" class="outline-2">
+<div id="outline-container-7.-Looking-Ahead" class="outline-2">
 <h2 id="7.-Looking-Ahead">7. Looking Ahead</h2>
 <div class="outline-text-2" id="text-7.-Looking-Ahead">
 <p>
