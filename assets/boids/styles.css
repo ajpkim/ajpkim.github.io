@@ -44,3 +44,12 @@ input {
     color: #ffeab4;
     text-align: center;
 }
+
+#text-container {
+    margin: 2rem;
+}
+
+#text-container h2 {
+    text-align: center;
+    color: #eeaeee;
+}

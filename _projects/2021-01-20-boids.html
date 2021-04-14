@@ -4,14 +4,13 @@ stylesheet: "/assets/boids/styles.css"
 title: "Boids: Emergent flocking behavior"
 date: 2021-01-20
 link:
-  - "https://github.com/ajpkim/interactive-boids"
-  - github
+- "https://github.com/ajpkim/interactive-boids"
+- github
 ---
 
 
 <main>
-  <canvas id="canvas" ></canvas>
-  
+  <canvas id="canvas" ></canvas>  
   <div id="classic-forces-container">
     <h2>Classic Steering Forces</h2>
     <p class="slider-annotation">Left sliders = Range | Right sliders = Force</p>
@@ -43,9 +42,20 @@ link:
 
   </div>
 
+  <div id="text-container">
+    <h2>Boids</h2>
+    <p>The boids algorithm is an artificial life simulation discovered by Craig Reynolds that models the coordinated movements of animal groups like flocks of birds and schools of fish.</p>
+    <p>The movement of each individual "boid" is governed by a few simple rules. From these simple local rules emerges complex and organized behavior at the group level, making the boids algorithm a beautiful example of emergent complexity.</p>
+    <p>In this implementation you can play around with the range and magnitude of the steering forces and observe the impact on group behavior and boid survival.</p>
+
+    <h2>Steering Forces</h2>
+    <p>There are 3 classic steering forces, to which I added a predator force as well. Here is a description of the classic forces from Craig Reynold's own <a href="http://www.red3d.com/cwr/boids/">site</a></p>
+
+    <p align="center"><img src="../../assets/boids/img/steering-forces.png"/></p>
+  </div>
+  
 </main>
 <script src="/assets/boids/js/boids.js"></script>
-
 <script>
   // Toggle sliders based on scroll position relative to canvas
   window.onscroll = function(){
