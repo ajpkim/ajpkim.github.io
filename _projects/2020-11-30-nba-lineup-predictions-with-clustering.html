@@ -10,7 +10,7 @@ link:
   - github
 ---
 
-<div id="outline-container-orgc2e8e2b" class="outline-2">
+<div id="outline-container-1.-Project-Description" class="outline-2">
 <h2 id="1.-Project-Description">1. Project Description</h2>
 <div class="outline-text-2" id="text-1.-Project-Description">
 <p>
@@ -22,7 +22,7 @@ The inputs to the networks were lineup cluster profiles which were built by summ
 </p>
 </div>
 </div>
-<div id="outline-container-orgabd44be" class="outline-2">
+<div id="outline-container-Table-of-Contents" class="outline-2">
 <h2 id="Table-of-Contents">Table of Contents</h2>
 <div class="outline-text-2" id="text-Table-of-Contents">
 <ul class="org-ul">
@@ -54,7 +54,7 @@ The inputs to the networks were lineup cluster profiles which were built by summ
 </div>
 </div>
 
-<div id="outline-container-org5f620d5" class="outline-2">
+<div id="outline-container-2.-NBA-context" class="outline-2">
 <h2 id="2.-NBA-context">2. NBA Context</h2>
 <div class="outline-text-2" id="text-2.-NBA-context">
 <p>
@@ -83,7 +83,7 @@ The influence of the positional hierarchy is far-reaching. For example, many who
 </div>
 </div>
 
-<div id="outline-container-org5304a22" class="outline-2">
+<div id="outline-container-3.-Building-the-player-dataset" class="outline-2">
 <h2 id="3.-Building-the-player-dataset">3. Building the Player Dataset</h2>
 <div class="outline-text-2" id="text-3.-Building-the-player-dataset">
 <p>
@@ -91,7 +91,7 @@ The first set of tasks was gathering the statistical data, cleaning it, combinin
 </p>
 </div>
 
-<div id="outline-container-org0562c6e" class="outline-3">
+<div id="outline-container-3.1.-scraping-player-season-stats-&-biographical-data" class="outline-3">
 <h3 id="3.1.-scraping-player-season-stats-&-biographical-data">3.1. Scraping player-season stats &amp; biographical data</h3>
 <div class="outline-text-3" id="text-3.1.-scraping-player-season-stats-&-biographical-data">
 <p>
@@ -245,7 +245,7 @@ Execute scraping:
 </div>
 </div>
 
-<div id="outline-container-orgf7f03fd" class="outline-3">
+<div id="outline-container-3.2.-cleaning-the-data" class="outline-3">
 <h3 id="3.2.-cleaning-the-data">3.2. Cleaning the data</h3>
 <div class="outline-text-3" id="text-3.2.-cleaning-the-data">
 <p>
@@ -253,7 +253,7 @@ At this point the raw player dataset had shape <code>(11162, 92)</code> with row
 </p>
 
 
-<div class="figure">
+<div id="org862ff10" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/stat_plots/missing_vals_by_year.jpg" alt="missing_vals_by_year.jpg" width="100%" />
 </p>
 </div>
@@ -282,7 +282,7 @@ At this point the raw player dataset had shape <code>(11162, 92)</code> with row
 </div>
 </div>
 
-<div id="outline-container-org5dce7ef" class="outline-3">
+<div id="outline-container-3.3.-transforming-the-data" class="outline-3">
 <h3 id="3.3.-transforming-the-data">3.3. Transforming the data</h3>
 <div class="outline-text-3" id="text-3.3.-transforming-the-data">
 <p>
@@ -313,7 +313,7 @@ the player's shooting ability</li>
 </summary>
 
 
-<div class="figure">
+<div id="orgd8bff47" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/stat_plots/stat_distributions_1997_to_2020_box_hist.jpg" alt="stat_distributions_1997_to_2020_box_hist.jpg" width="100%" />
 </p>
 </div>
@@ -322,7 +322,7 @@ the player's shooting ability</li>
 </div>
 </div>
 
-<div id="outline-container-org559ddf0" class="outline-3">
+<div id="outline-container-3.4.-principal-component-analysis-(PCA)" class="outline-3">
 <h3 id="3.4.-principal-component-analysis-(PCA)">3.4. Principal component analysis (PCA)</h3>
 <div class="outline-text-3" id="text-3.4.-principal-component-analysis-(PCA)">
 <p>
@@ -330,7 +330,7 @@ After dropping some more columns (e.g. <code>age</code>, stats related to tradit
 </p>
 
 
-<div class="figure">
+<div id="org2bda94f" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/pca_plots/pca_explained_variance.jpg" alt="pca_explained_variance.jpg" width="75%;" />
 </p>
 </div>
@@ -338,7 +338,7 @@ After dropping some more columns (e.g. <code>age</code>, stats related to tradit
 </div>
 </div>
 
-<div id="outline-container-orgcee6951" class="outline-2">
+<div id="outline-container-4.-Clustering" class="outline-2">
 <h2 id="4.-Clustering">4. Clustering</h2>
 <div class="outline-text-2" id="text-4.-Clustering">
 <p>
@@ -376,13 +376,13 @@ df_clusters.head()  <span class="org-comment-delimiter"># </span><span class="or
 </details>
 
 
-<div class="figure">
+<div id="org5449735" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/clustering_df_head.jpg" alt="clustering_df_head.jpg" width="100%" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org44b2d9b" class="outline-3">
+<div id="outline-container-4.1.-clusters-overview" class="outline-3">
 <h3 id="4.1.-clusters-overview">4.1. Clusters overview</h3>
 <div class="outline-text-3" id="text-4.1.-clusters-overview">
 <p>
@@ -497,14 +497,14 @@ All the statistical, biographical, pca, and cluster label datasets were combined
 </table>
 
 
-<div class="figure">
+<div id="org0cad64d" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/cluster_plots/cluster_mean_stats_snapshot.jpg" alt="cluster_mean_stats_snapshot.jpg" width="100%" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org11daee5" class="outline-3">
+<div id="outline-container-4.2.-PCA-plots-to-visualize-cluster-spacing" class="outline-3">
 <h3 id="4.2.-PCA-plots-to-visualize-cluster-spacing">4.2. PCA plots to visualize cluster spacing</h3>
 <div class="outline-text-3" id="text-4.2.-PCA-plots-to-visualize-cluster-spacing">
 <p>
@@ -512,23 +512,23 @@ To get a rough visual intuition for the relative spacing of the clusters I plott
 </p>
 
 
-<div class="figure">
+<div id="orgad4a779" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/pca_plots/pca_players_annotated.jpg" alt="pca_players_annotated.jpg" width="100%" />
 </p>
 </div>
 
 
-<div class="figure">
+<div id="org4bbabe8" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/pca_plots/3d/pca_3d_first.png" alt="pca_3d_first.png" width="60%" style="float:left;padding-top: 7rem;" />
 </p>
 </div>
 
-<div class="figure">
+<div id="org6c9d0e3" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/pca_plots/3d/pca_3d_second.png" alt="pca_3d_second.png" width="37%" style="float:right;" />
 </p>
 </div>
 
-<div class="figure">
+<div id="org8162ffe" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/pca_plots/3d/pca_3d_third.png" alt="pca_3d_third.png" width="37%" style="float:right;" />
 </p>
 </div>
@@ -537,7 +537,7 @@ To get a rough visual intuition for the relative spacing of the clusters I plott
 </div>
 
 
-<div id="outline-container-orga2de361" class="outline-3">
+<div id="outline-container-4.3.-clusters-vs-traditional-positions" class="outline-3">
 <h3 id="4.3.-clusters-vs-traditional-positions">4.3. Clusters vs traditional positions</h3>
 <div class="outline-text-3" id="text-4.3.-clusters-vs-traditional-positions">
 <p>
@@ -545,14 +545,14 @@ One of the first comparisons I looked into was the relationship between the clus
 </p>
 
 
-<div class="figure">
+<div id="org13269a9" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/cluster_plots/percent_playing_time_at_position.jpg" alt="percent_playing_time_at_position.jpg" width="100%" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3ed6edd" class="outline-3">
+<div id="outline-container-4.4.-finances-&-player-counts" class="outline-3">
 <h3 id="4.4.-finances-&-player-counts">4.4. Finances &amp; player counts</h3>
 <div class="outline-text-3" id="text-4.4.-finances-&-player-counts">
 <p>
@@ -560,12 +560,12 @@ Money talks, and in the NBA it speaks to which players NBA front offices value a
 </p>
 
 
-<div class="figure">
+<div id="orgb633ca5" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/cluster_plots/mean_cluster_salary.jpg" alt="mean_cluster_salary.jpg" width="48%" style="float:left;" />
 </p>
 </div>
 
-<div class="figure">
+<div id="org6a250c6" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/cluster_plots/number_players_per_cluster_each_year.jpg" alt="number_players_per_cluster_each_year.jpg" width="48%" style="float:right;" />
 </p>
 </div>
@@ -587,11 +587,11 @@ There are very few player-season representing cluster 10 ("variety ball handlers
 </div>
 </div>
 
-<div id="outline-container-org48f1616" class="outline-2">
+<div id="outline-container-5.-Lineup-analysis" class="outline-2">
 <h2 id="5.-Lineup-analysis">5. Lineup Analysis</h2>
 <div class="outline-text-2" id="text-5.-Lineup-analysis">
 </div>
-<div id="outline-container-orgb3fdb0b" class="outline-3">
+<div id="outline-container-5.1.-scraping-lineup-data" class="outline-3">
 <h3 id="5.1.-scraping-lineup-data">5.1. Scraping lineup data</h3>
 <div class="outline-text-3" id="text-5.1.-scraping-lineup-data">
 <p>
@@ -758,14 +758,14 @@ Execute scraping:
 </details>
 
 
-<div class="figure">
+<div id="orgfda1acd" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/5_player_raw_lineup_head_tail.jpg" alt="5_player_raw_lineup_head_tail.jpg" width="100%;" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org68c2707" class="outline-3">
+<div id="outline-container-5.2.-building-lineup-cluster-profiles" class="outline-3">
 <h3 id="5.2.-building-lineup-cluster-profiles">5.2. Building lineup cluster profiles</h3>
 <div class="outline-text-3" id="text-5.2.-building-lineup-cluster-profiles">
 <p>
@@ -860,7 +860,7 @@ df4.to_csv(<span class="org-string">'datasets/master_4man_lineup_clusters_2000_2
 </div>
 </div>
 
-<div id="outline-container-org25d9b02" class="outline-3">
+<div id="outline-container-5.3.-lineup-correlations-&-salaries" class="outline-3">
 <h3 id="5.3.-lineup-correlations-&-salaries">5.3. Lineup correlations &amp; salaries</h3>
 <div class="outline-text-3" id="text-5.3.-lineup-correlations-&-salaries">
 <p>
@@ -868,7 +868,7 @@ Before trying to predict lineup point-differentials I attempted to gain some bas
 </p>
 
 
-<div class="figure">
+<div id="orgac16587" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/lineup_plots/lineup_10_correlated_stats_diff_pts.jpg" alt="lineup_10_correlated_stats_diff_pts.jpg" width="100%;" />
 </p>
 </div>
@@ -912,7 +912,7 @@ Do higher paid lineups perform better than lower paid ones? To compare the salar
 </details>
 
 
-<div class="figure">
+<div id="orge763d26" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/lineup_plots/lineup_pts_diff_salary_zscores_annotated.jpg" alt="lineup_pts_diff_salary_zscores_annotated.jpg" width="100%;" />
 </p>
 </div>
@@ -923,7 +923,7 @@ A high lineup salary does not directly indicate high performance. However, there
 </div>
 </div>
 
-<div id="outline-container-org670bff1" class="outline-3">
+<div id="outline-container-5.4.-predicting-lineup-point-differentials" class="outline-3">
 <h3 id="5.4.-predicting-lineup-point-differentials">5.4. Predicting lineup point differentials</h3>
 <div class="outline-text-3" id="text-5.4.-predicting-lineup-point-differentials">
 <p>
@@ -1076,22 +1076,22 @@ plt.legend();
 </table>
 
 
-<div class="figure">
+<div id="orga3ece04" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/training_plots/5player_nonbpm_2hidden.jpg" alt="5player_nonbpm_2hidden.jpg" width="48%;" style="float:left;" />
 </p>
 </div>
 
-<div class="figure">
+<div id="orgd17ab0f" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/training_plots/5player_bpm_2hidden.jpg" alt="5player_bpm_2hidden.jpg" width="48%;" style="float:right;" />
 </p>
 </div>
 
-<div class="figure">
+<div id="orgf6ed0f6" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/training_plots/4player_nonbpm_2hidden.jpg" alt="4player_nonbpm_2hidden.jpg" width="48%;" style="float:left;" />
 </p>
 </div>
 
-<div class="figure">
+<div id="orge67d43c" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/training_plots/4player_bpm_2hidden.jpg" alt="4player_bpm_2hidden.jpg" width="48%;" style="float:right;" />
 </p>
 </div>
@@ -1109,7 +1109,7 @@ For fun we can try bigger networks and watch the network quickly overfit and mem
 </div>
 
 
-<div class="figure">
+<div id="org7c7b0ce" class="figure">
 <p><img src="../../assets/nba-lineup-predictions-with-clustering/training_plots/4player_bpm_deepnet.jpg" alt="4player_bpm_deepnet.jpg" width="75%;" />
 </p>
 </div>
@@ -1117,7 +1117,7 @@ For fun we can try bigger networks and watch the network quickly overfit and mem
 </div>
 </div>
 
-<div id="outline-container-org0c1453d" class="outline-2">
+<div id="outline-container-6.-Wrapping-Up" class="outline-2">
 <h2 id="6.-Wrapping-Up">6. Wrapping Up</h2>
 <div class="outline-text-2" id="text-6.-Wrapping-Up">
 <p>
