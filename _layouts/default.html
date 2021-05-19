@@ -17,12 +17,12 @@
   </head>
 
   <body>
-    <div class="container">
+    <div id="container">
       {% include navbar.html %}
       {% if page.floating_toc %}
       <button id=toc-btn>+</button>
       {% endif %}
-      <div class="content-container">
+      <div id="content-container">
 	{{ content }}
       </div>
     </div>
