@@ -1,0 +1,173 @@
+---
+layout: post
+stylesheet: "/assets/style-transfer/styles.css"
+title: "Neural Artistic Style Transfer"
+date: 2021-05-19
+location: Boston, MA, USA
+floating_toc: true
+link:
+- "https://github.com/ajpkim/neural-artistic-style-transfer"
+- github
+---
+
+<main>
+  <div id="container">
+    <div id="app-container">
+      <div id="content-btns-canvas-container">
+	<div id="content-image-block">
+	  <img id="content-image" height="256" src="/assets/style-transfer/images/content.jpg"/>
+	  <div class="image-options">
+	    <label for="content-select">Content Image</label>
+	    <select id="content-select">
+	      <option value="still-life-photo">Still life</option>
+	      <option value="parthenon">Parthenon</option>
+	      <option value="ants">Ants</option>
+	      <option value="birds">Birds</option>
+              <option value="skateboarding">Skateboarding</option>
+	      <option value="everest">Mt. Everest</option>
+	      <option value="pyramids">Pyramids of Giza</option>
+	      <option value="file-upload">Upload file</option>
+	    </select>
+	  </div>
+	</div>
+	<div id="btns-container">
+	  <button id="style-transfer-btn">TRANSFER STYLE</button>
+	  <button id="save-stylized-image-btn">Save Stylized Image</button>
+	  <button id="add-style-image-btn">Add Another Style</button>
+	</div>
+	<div id="canvas-container">
+	  <canvas id="canvas" height="256"></canvas>
+	</div>
+      </div>
+      <div id="style-container">
+	<div class="style-image-block" id="style-image-block-1">
+	  <img class="style-image" id="style-image-1" height="256" src="/assets/style-transfer/images/style.jpg"/>
+	  <div class="image-options">
+	    <label for="style-select">Style Image</label>
+	    <select class="style-select">
+	      <option value="cezanne">Cezanne</option>
+	      <option value="monet">Monet</option>
+	      <option value="braque">Braque</option>
+	      <option value="okeefe">O'Keefe</option>
+	      <option value="udnie">Udnie</option>
+	      <option value="suerat">Sueret</option>
+	      <option value="van-gogh">van Gogh</option>
+	      <option value="munch">Munch</option>
+	      <option value="file-upload">Upload file</option>
+	    </select>
+	    <label for="style-slider">Stylization Strength</label>
+	    <input type="range" min="0" max="10" value="5" class="style-slider">
+	    <button class="remove-style-btn" id="remove-style-btn-1">Remove</button>
+	  </div>
+	</div>
+	<div class="empty-col">
+	  <!-- For style grid spacing -->
+	</div>
+      </div>
+      <input type="file" id="file-upload" accept="image/*,.pdf"> 
+    </div>
+  </div>
+</main>
+<!-- Load @magenta/image -->
+<script src="https://cdn.jsdelivr.net/npm/@magenta/image@^0.2.1"></script>
+<!-- Load  TensorFlow.js -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+<script src="/assets/style-transfer/style-transfer.js"></script>
+
+<div id="outline-container-Table-of-Contents" class="outline-2">
+<h2 id="Table-of-Contents">Table of Contents</h2>
+<div class="outline-text-2" id="text-Table-of-Contents">
+<ul class="org-ul">
+<li><a href="#Overview">Overview</a></li>
+<li><a href="#Model-Architecture">Model Architecture</a></li>
+<li><a href="#Representing-Style-and-Content">Representing Style and Content</a></li>
+<li><a href="#Recent-History-of-ML-Style-Transfer">Recent History of ML Style Transfer</a>
+<ul class="org-ul">
+<li><a href="#Gatys-et-al.-2015">Gatys et al. 2015</a></li>
+<li><a href="#Johnson-et-al.-2016">Johnson et al. 2016</a></li>
+<li><a href="#Ghiasi-et-al.-2017">Ghiasi et al. 2017</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-Overview" class="outline-2">
+<h2 id="Overview">Overview</h2>
+<div class="outline-text-2" id="text-Overview">
+<p>
+This application uses a neural network to extract a representation of the style of an image, or collection of images, and then transfer the style to a given "content image" by producing a stylized version which retains the semantic information of the original content image. The model used here is a open-source implementation from <a href="https://magenta.tensorflow.org/">Magenta</a> of an "Arbitrary Style Transfer Network" based on the work of <a href="https://arxiv.org/abs/1705.06830v2">Ghiasi et al (2017)</a> . The model is deployed locally in the browser using <a href="https://www.tensorflow.org/js">TensorFlow.js</a>, a JavaScript library for doing machine learning in the browser.
+</p>
+
+<p>
+Artistic style transfer like this is possible due to advances in machine learning that have produced algorithms that can effectively and efficiently separate out the <i>style</i> from the <i>content</i> of images.
+The computational definitions of style and content used here are useful because they have a serious relation to what we intuitively understand these words to mean. These operational definitions have come about because researchers have built algorithms (neural networks) that learn to represent the visual world in powerful ways and pulling apart these representations at different levels (i.e. low level texture features versus high level semantic features) allows one to separate out different perceptual features of an image.
+</p>
+
+<p>
+A cool element of the research mentioned above is the author's conclusion that the organization of the space of style representations produced coheres with our own understanding of style. This means that images we tend to find stylistically similar are more likely to be found closer to one another in the style representation space than images we find to be stylistically dissimilar. This is what allows us to smoothly combine multiple styles as well as explore the space of style representations with some sense of orientation.
+</p>
+</div>
+</div>
+
+<div id="outline-container-Model-Architecture" class="outline-2">
+<h2 id="Model-Architecture">Model Architecture</h2>
+<div class="outline-text-2" id="text-Model-Architecture">
+<p>
+The model uses two separate networks, a <b>style prediction network</b> and a <b>style transformation network</b>. The style prediction network extracts a 100 dimensional style embedding from a single pass of the "style image" through the network. The style embedding and "content image" are then provided as inputs to the transformation network which computes a transformation of the content image to produce a stylized version as its output (with a single pass). Perceptual loss functions based on VGG-16 features are used to train the networks. Here's a diagram of the architecture from the above paper:
+</p>
+
+<p align="center"><img src="/assets/style-transfer/images/ghiasi-2017-architecture.png"/></p>
+</div>
+</div>
+
+<div id="outline-container-Representing-Style-and-Content" class="outline-2">
+<h2 id="Representing-Style-and-Content">Representing Style and Content</h2>
+<div class="outline-text-2" id="text-Representing-Style-and-Content">
+<p>
+Neural networks, such as the deep convolutional neural networks (CNNs) used for image classification, are function approximators which learn a hierarchy of computations to maximize performance on some metric (e.g.  minimizing some loss function) with respect to a particular set of data. Complex representations can emerge throughout these networks via the combination of many simple components each dutifully adding a little piece to the collective computation. Deep CNNs trained on lots of visual data can learn powerful representations for making sense of the visual world in general, and we can unpack and use the visual knowledge in these networks for many different tasks, such as style transfer.
+</p>
+
+<p>
+The layers throughout image classification networks like VGG-16 process increasingly complex and semantic information. Some units ("neurons") early in the network may respond only to edges or to particular colors, while later units may make higher level distinctions such as discriminating between entire species such as dogs and cats. Using the representations that an image classifier has learned, we can map particular patterns of network activation to specific visual features, in an analogous way to how we may associate specific activation in the visual cortex with particular visual stimuli. This mapping allows us to look at the signature of activation an image generates as it is processed by an image classifier and produce quantitative measures for a variety of visual features for the image. Neural style transfer is based on the ability to disaggregate some of these features inside image classifiers and algorithmically identify features that align with our perceptual understanding of style and content.
+</p>
+
+<p>
+Because the layers in image classification networks process increasingly semantic information, <i>style features</i> are extracted from early layers and <i>content features</i> (i.e. semantic information) are extracted from later layers. Broadly, two images with similar activation in certain later layers will have similar semantic content. The ability to compute style and content features for an image means we can compare the style and content for different images by measuring the distance between the feature sets generated by the two images. Using these computational metrics for content and style we can construct loss functions for training neural networks to minimize the difference in style and/or content between images. These loss functions are based on perceptual features as opposed to something like per-pixel differences and are called <b>perceptual loss functions</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-Recent-History-of-ML-Style-Transfer" class="outline-2">
+<h2 id="Recent-History-of-ML-Style-Transfer">Recent History of ML Style Transfer</h2>
+<div class="outline-text-2" id="text-Recent-History-of-ML-Style-Transfer">
+</div>
+
+<div id="outline-container-Gatys-et-al.-2015" class="outline-3">
+<h3 id="Gatys-et-al.-2015">Gatys et al. 2015</h3>
+<div class="outline-text-3" id="text-Gatys-et-al.-2015">
+<p>
+<a href="https://arxiv.org/abs/1508.06576">Gatys (2015)</a> initiated the recent advancements in neural style transfer by providing an  algorithmic understanding of how neural representations can independently capture the content and style of an image as well as an optimization function for training a neural network to separate and recombine the style and content of distinct images to produce a stylized version of some content image. The optimization problem is concerned with minimizing the <i>feature reconstruction</i> (content) and <i>style reconstruction</i> (style) of the synthesized image relative to the given content image and style image. The stylized images are created via an explicit optimization process given a pair of images which is computationally expensive and offers no generalization to new images.
+</p>
+</div>
+</div>
+
+<div id="outline-container-Johnson-et-al.-2016" class="outline-3">
+<h3 id="Johnson-et-al.-2016">Johnson et al. 2016</h3>
+<div class="outline-text-3" id="text-Johnson-et-al.-2016">
+<p>
+<a href="https://arxiv.org/abs/1603.08155">Johnson (2016)</a> recast the Gatys optimization problem as an image transformation problem where one wishes to apply a single, fixed style, to an arbitrary content image. This transformation can then be solved by an <i>image transformation network</i> which learns the transformation which minimizes the loss from the optimization problem proposed by Gatys. The transformation network is a function approximator for mapping content images to stylized versions. An image classifier (VGG-16) is used as a <i>loss network</i> which defines perceptual loss functions by measuring the differences in style and content between the transformed image, style image, and content image. The result is that new stylized images for arbitrary content images can be produced in real-time with a single pass through the transformation network. However, the network is limited to a single learned style.
+</p>
+
+<p align="center"><img src="/assets/style-transfer/images/johnson-2016-system-overview.png"/></p>
+</div>
+</div>
+
+<div id="outline-container-Ghiasi-et-al.-2017" class="outline-3">
+<h3 id="Ghiasi-et-al.-2017">Ghiasi et al. 2017</h3>
+<div class="outline-text-3" id="text-Ghiasi-et-al.-2017">
+<p>
+<a href="https://arxiv.org/abs/1705.06830v2">Ghiasi (2017)</a> further improved the flexibility and efficiency of previous methods by introducing a <i>style prediction network</i> to extract a style representation for an arbitrary image with a single pass. The style transformation network from Johnson et al. is then augmented to learn how to transform a content image to match the style of the extracted style embedding. The combination of a style prediction network and style transformation network allows the system to generalize to new images and produce stylized images in real-time for arbitary content and style images. Additionally, the use of style embeddings provides direct access to the style representation and enables control over the strength of stylization, combination of multiple styles, and exploration of the style representation space.
+</p>
+</div>
+</div>
+</div>

@@ -15,7 +15,7 @@ body {
     color: black;
     padding: 1rem;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 auto 8rem auto;
     height: 100%;
 }
 #content-btns-canvas-container {
@@ -92,6 +92,5 @@ img {
 }
 option {
     font-size: 2rem;
-    font-weight: bold;;
-    opacity: 0;
+    font-weight: bold;
 }
