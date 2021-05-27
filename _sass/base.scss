@@ -63,6 +63,10 @@ sup a {
 a {
     font-weight: 400;
     text-decoration: underline $color-link 2px;
+
+    b, strong {
+	color: $color-link;
+    }
 }
 
 

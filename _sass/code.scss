@@ -1,11 +1,11 @@
 // Base generated via default org-html export
 pre {
     // border: 2px solid $color-nord-3;
+    color: $color-nord-6;
     padding: 1rem;
     font-family: $font-mono;
     overflow: auto;
 }
-
 pre.src {
     font-size: 1.6rem;
     line-height: 2.5rem;
@@ -15,7 +15,6 @@ pre.src {
     background-color: $color-src-bg;
     margin: 2.5rem 0;
 }
-
 pre.src:before {
     color: #000;
     display: none;
@@ -26,7 +25,6 @@ pre.src:before {
     padding: 3px;
     border: 1px solid black;
 }
-
 pre.src:hover:before { display: inline;}
 /* Languages per Org manual */
 pre.src-asymptote:before { content: 'Asymptote'; }
