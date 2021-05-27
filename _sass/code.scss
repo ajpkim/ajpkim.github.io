@@ -1,11 +1,9 @@
 // Base generated via default org-html export
-
 pre {
-    border-top: 6px solid $color-dark-grey;  // Matches the bottom scrollbar that is always present
+    // border: 2px solid $color-nord-3;
     padding: 1rem;
     font-family: $font-mono;
     overflow: auto;
-    margin: 1rem;
 }
 
 pre.src {

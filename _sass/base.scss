@@ -2,7 +2,8 @@
 
 * {
     scrollbar-width: thin;
-    scrollbar-color: $color-silver $color-dark-grey;
+    scrollbar-color: $color-nord-1 $color-nord-5;
+    scrollbar-color: $color-scrollbar $color-nord-6;
 }
 
 :root {
@@ -13,7 +14,7 @@ body {
     font-family: $font-sans;
     color: $color-body;
     background-color: $color-bg;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
 }
 
 p, ul, ol {
@@ -22,29 +23,26 @@ p, ul, ol {
 }
 
 strong {
-    color: $color-pink;
+    color: $color-strong;
 }
 
 b {
-    color: $color-plum1;
+    color: $color-strong;
 }
 
 h1 {
     color: $color-h1;
-    font-family: $font-serif;
     font-size: 4rem;
 }
 
 h2 {
     color: $color-h2;
-    font-family: $font-serif;
     font-size: 3.5rem;
     margin: 3rem 0;
 }
 
 h3 {
     color: $color-h3;
-    font-family: $font-sans;
     font-size: 2.5rem;
     margin: 2rem 0;
 }
@@ -52,10 +50,11 @@ h3 {
 h4 {
     color: $color-h4;
     font-size: 2.25rem;
-    font-family: $font-sans;
     margin: 2.25rem;
 }
-
+h1,h2,h3,h4,h5,h6 {
+    font-family: $font-serif;
+}
 sup a {
 	color: $color-link;
 	text-decoration: none;
@@ -88,6 +87,7 @@ img {
 code {
     color: $color-code;
     font-family: $font-mono;
+    background: $color-nord-5;
 }
 
 details {
@@ -97,7 +97,7 @@ details {
 // Tables
 
 table {
-    border: 2px white solid;
+    border: 2px $color-nord-0 solid;
     // text-align: center;
     margin: auto;
 
@@ -107,6 +107,7 @@ table th {
   font-size: 18px;
   font-weight: bold;
   background-color: $color-table-header;
+  color: $color-nord-6;
   padding: 0.5em;
   text-align: left;
 }

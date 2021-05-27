@@ -1,51 +1,64 @@
-// // Colors
-$color-white: #ffffff;
-$color-soft-white: #e4e9ee;
-$color-creamy-white: #f7f7f7;
-$color-silver: #c0c0c0;
-$color-grey: #d3d3d3;
-$color-dark-grey: #555555;
-$color-purple: #b6b3f5;
-$color-purple2: #a9a3ff;
-$color-pink: #ffbbe8;
-$color-soft-pink: #ffdbeb;
-$color-plum1: #eeaeee;  // Emacs color
-$color-light-baby-blue: #b1e3fa;
-$color-baby-blue: #acdbff;
-$color-navy: #101357;
-$color-light-orange: #ffeab4;
-$color-light-green: #85eeac;
-$color-green: #73d8b2;
-$color-loud-green: #16ffbd;
-$color-mint: #83F3E6;
-$color-mint2: #acffed;
-//$color-light-orange: $color-mint;
-// $color-bg: $color-creamy-white;
-// $color-bg: #121212;
-$color-bg: #292a44;  // Emacs Rebecca theme bg
+//// Colors
+// Nord theme: https://www.nordtheme.com/docs/colors-and-palettes
+$color-nord-0: #2e3440;
+$color-nord-1: #3b4252;
+$color-nord-2: #434c5e;
+$color-nord-3: #4c566a;
+$color-nord-4: #d8dee9;
+$color-nord-5: #e5e9f0;
+$color-nord-6: #eceff4;
+$color-nord-7: #8fbcbb;
+$color-nord-8: #88c0d0;
+$color-nord-9: #81a1c1;
+$color-nord-10: #5e81ac;
+$color-nord-11: #bf616a;
+$color-nord-12: #d08770;
+$color-nord-13: #ebcb8b;
+$color-nord-14: #a3be8c;
+$color-nord-15: #b48ead;
 
-$color-body: $color-soft-white;
+$color-grey: #eeff;
+$color-baby-blue: #acdbff;
+$color-royal-blue: #318BD4;
+$color-navy: #00458b;
+$color-pink: #eeaeee;  // Emacs color "plum1"
+//////////////////////////////////////////////////////////////////////
+// Light Theme
+
+$color-accent1: $color-nord-5;
+$color-accent2: $color-nord-4;
+
+$color-bg: $color-nord-6;
+$color-body: $color-nord-2;
+$color-headers: $color-nord-0;
 
 // Headers
-$color-h1: $color-body;
-$color-h2: $color-baby-blue;
-$color-h3: $color-body;
-$color-h4: $color-body;
-$color-h5: $color-body;
-$color-h6: $color-body;
-
+$color-h1: $color-nord-0;
+$color-h2: $color-nord-0;
+$color-h3: $color-nord-1;
+$color-h4: $color-nord-1;
+$color-h5: $color-nord-1;
+$color-h6: $color-nord-1;
 
 // Elements
-$color-link: #8dc2ee;
-$color-code: $color-light-orange;
-$color-src-bg: $color-bg;
-// Tables
-$color-table-header: #30528d;
-$color-table-even-rows: #3c434e;
-$color-table-odd-rows: #2e343d;
+$color-link: $color-royal-blue;
+$color-strong: $color-nord-1;
+$color-code: $color-navy;
+$color-src-bg: $color-nord-5;
+$color-toc-btn: $color-navy;
+$color-floating-toc-ul-border: $color-nord-5;
+$color-post-metadata-p: $color-nord-3;
+$color-post-metadata-edited: $color-navy;
+$color-scrollbar: $color-nord-3;
+$color-navbar-links: $color-nord-1;
+$color-navbar-border: $color-royal-blue;
 
-// // Fonts
+// Tables
+$color-table-header: $color-nord-10;
+$color-table-even-rows: $color-nord-4;
+$color-table-odd-rows: $color-nord-5;
+
+// Fonts
 $font-sans: "Ubuntu", "sans-serif";
-$font-serif: "Crimson Text", "Cambria Math", "Oswald";
-// $font-mono: "DejaVu Sans Mono"
+$font-serif: "Crimson Text", "Exo", "Georgia", serif;
 $font-mono: "Source Code Pro", monospace;

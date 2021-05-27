@@ -2,72 +2,94 @@
 layout: post
 stylesheet: "/assets/boids/styles.css"
 title: "Boids: Emergent flocking behavior"
+location: "Franconia, NH, USA"
 date: 2021-01-20
 link:
 - "https://github.com/ajpkim/interactive-boids"
 - github
 ---
 
-
 <main>
-  <canvas id="canvas" ></canvas>  
-  <div id="classic-forces-container">
-    <h2>Classic Steering Forces</h2>
-    <p class="slider-annotation">Left sliders = Range | Right sliders = Force</p>
-    
-    <h3>Align</h3>
-    <input type="range" min="1" max="20" value="10" id="alignRangeSlider" class="rangeSlider">
-    <input type="range" min="1" max="20" value="5" id="alignForceSlider" class="forceSlider">
+  <div id="app-container">
+    <canvas id="canvas" ></canvas>  
+    <div id="classic-forces-container">
+      <h2>Classic Steering Forces</h2>
+      <p class="slider-annotation">Left sliders = Range | Right sliders = Force</p>
+      
+      <h3>Align</h3>
+      <input type="range" min="1" max="20" value="10" id="alignRangeSlider" class="rangeSlider">
+      <input type="range" min="1" max="20" value="5" id="alignForceSlider" class="forceSlider">
 
-    <h3>Separate</h3>
-    <input type="range" min="1" max="20" value="10" id="separateRangeSlider" class="rangeSlider">
-    <input type="range" min="1" max="20" value="5" id="separateForceSlider" class="forceSlider">
+      <h3>Separate</h3>
+      <input type="range" min="1" max="20" value="10" id="separateRangeSlider" class="rangeSlider">
+      <input type="range" min="1" max="20" value="5" id="separateForceSlider" class="forceSlider">
 
-    <h3>Cohere</h3>
-    <input type="range" min="1" max="20" value="10" id="cohereRangeSlider" class="rangeSlider">
-    <input type="range" min="1" max="20" value="5" id="cohereForceSlider" class="forceSlider">
+      <h3>Cohere</h3>
+      <input type="range" min="1" max="20" value="10" id="cohereRangeSlider" class="rangeSlider">
+      <input type="range" min="1" max="20" value="5" id="cohereForceSlider" class="forceSlider">
+    </div>
+
+    <div id="predator-forces-container">
+      <h2>Predator Interactions</h2>
+      <p class="slider-annotation">Left sliders = Range | Right sliders = Force</p>
+      
+      <h3>Boid predator avoidance</h3>
+      <input type="range" min="1" max="20" value="10" id="predatorAvoidanceRangeSlider" class="rangeSlider">
+      <input type="range" min="1" max="20" value="8" id="predatorAvoidanceForceSlider" class="forceSlider">
+
+      <h3>Predator range & population</h3>
+      <input type="range" min="1" max="20" value="8" id="predatorPerceptionRangeSlider" class="rangeSlider">
+      <input type="range" min="0" max="8" value="1" id="predatorCountSlider" class="predatorCountSlider">
+
+    </div>
   </div>
-
-  <div id="predator-forces-container">
-    <h2>Predator Interactions</h2>
-    <p class="slider-annotation">Left sliders = Range | Right sliders = Force</p>
-    
-    <h3>Boid predator avoidance</h3>
-    <input type="range" min="1" max="20" value="10" id="predatorAvoidanceRangeSlider" class="rangeSlider">
-    <input type="range" min="1" max="20" value="8" id="predatorAvoidanceForceSlider" class="forceSlider">
-
-    <h3>Predator range & population</h3>
-    <input type="range" min="1" max="20" value="8" id="predatorPerceptionRangeSlider" class="rangeSlider">
-    <input type="range" min="0" max="8" value="1" id="predatorCountSlider" class="predatorCountSlider">
-
-  </div>
-
-  <div id="text-container">
-    <h2>Boids</h2>
-    <p>The boids algorithm is an artificial life simulation discovered by Craig Reynolds that models the coordinated movements of animal groups like flocks of birds and schools of fish.</p>
-    <p>The movement of each individual "boid" is governed by a few simple rules. From these simple local rules emerges complex and organized behavior at the group level, making the boids algorithm a beautiful example of emergent complexity.</p>
-    <p>In this implementation you can play around with the range and magnitude of the steering forces and observe the impact on group behavior and boid survival.</p>
-
-    <h2>Steering Forces</h2>
-    <p>There are 3 classic steering forces, to which I added a predator force as well. Here is a description of the classic forces from Craig Reynold's own <a href="http://www.red3d.com/cwr/boids/">site</a></p>
-
-    <p align="center"><img src="../../assets/boids/img/steering-forces.png"/></p>
-  </div>
-  
 </main>
 <script src="/assets/boids/js/boids.js"></script>
 <script>
   // Toggle sliders based on scroll position relative to canvas
-  window.onscroll = function(){
-      let target = window.scrollY + document.querySelector('canvas').getBoundingClientRect().bottom - 200
+  window.onscroll = function() {
+    let target = window.scrollY + document.querySelector('canvas').getBoundingClientRect().bottom - 200
 
-      if(window.scrollY >= target) {
-	  document.getElementById('classic-forces-container').style.display = 'none';
-	  document.getElementById('predator-forces-container').style.display = 'none';
-      }
-      if(window.scrollY <= target) {
-	  document.getElementById('classic-forces-container').style.display = 'block';
-	  document.getElementById('predator-forces-container').style.display = 'block';
-      }
-  };
+     if (window.scrollY >= target) {
+    document.getElementById('classic-forces-container').style.display = 'none';
+    document.getElementById('predator-forces-container').style.display = 'none';
+    }
+    if(window.scrollY <= target) {
+      document.getElementById('classic-forces-container').style.display = 'block';
+      document.getElementById('predator-forces-container').style.display = 'block';
+    }
+};
 </script>
+
+<div id="outline-container-orgb38522b" class="outline-2">
+<h2 id="orgb38522b">Boids</h2>
+<div class="outline-text-2" id="text-orgb38522b">
+<p>
+The boids algorithm is an artificial life simulation discovered by Craig Reynolds that models the coordinated movements of animal groups like flocks of birds and schools of fish.
+</p>
+
+<p>
+The movement of each individual "boid" is governed by a few simple rules. From these simple local rules emerges complex and organized behavior at the group level, making the boids algorithm a beautiful example of emergent complexity.
+</p>
+
+<p>
+In this implementation you can play around with the range and magnitude of the steering forces and observe the impact on group behavior and boid survival.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd848f77" class="outline-2">
+<h2 id="orgd848f77">Steering Forces</h2>
+<div class="outline-text-2" id="text-orgd848f77">
+<p>
+There are 3 classic steering forces, to which I added a predator force as well. Here is a description of the classic forces from Craig Reynold's own <a href="http://www.red3d.com/cwr/boids/">site</a>.
+</p>
+
+
+
+<div id="orgf61b602" class="figure">
+<p><img src="../../assets/boids/img/steering-forces.png" alt="steering-forces.png" />
+</p>
+</div>
+</div>
+</div>

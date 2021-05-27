@@ -1,18 +1,14 @@
 :root {
     font-size: 62.5%; // Set 1rem == 10px
 }
-body {
-    font-size: 2.2rem;
-    background-color:  #292a44;
-    color: #e4e9ee;
-}
 #container {
     max-width: 1000px;
     margin: 25px auto 0px auto;
 }
 #app-container {
-    background: white;
-    color: black;
+    background: #fff;
+    /* nord-1 */
+    color: #3b4252;
     padding: 1rem;
     max-width: 1000px;
     margin: 0 auto 8rem auto;
@@ -47,17 +43,22 @@ body {
     margin-bottom: 2rem;
 }
 #style-transfer-btn {
-    background: #ffbbe8;    
+    font-size: 1.8rem;
+    font-weigt: bold;
+    /* nord-10 */
+    background: #5e81ac;
+    color: #eeeeee;
 }
 #add-style-image-btn {
-    background: #acdbff;
+    background: #eeff;
 }
 #save-stylized-image-btn {
     display: none;
-    background: #acdbff;
+    background: #eeff;
 }
 #canvas {
-    background: #778899;
+    /* nord-4 */
+    background: #d8dee9;
 }
 #style-container {
     padding: 1rem;
@@ -78,7 +79,7 @@ body {
 }
 #file-upload {
     display: none;
-}    
+}
 #writing-container {
     max-width: 850px;
     margin: 0 auto;
@@ -88,7 +89,7 @@ img {
     height: 256px;
     margin: clear;
     /* Crop image like a bg image */
-    object-fit: cover; 	
+    object-fit: cover;
 }
 option {
     font-size: 2rem;

@@ -1,15 +1,13 @@
 #post-metadata {
-
     font-family: $font-mono;
-    
     h1 {
 	margin-bottom: 1rem;
     }
     .edited-flag {
-	color: $color-pink;
+	color: $color-post-metadata-edited;
     }
     p {
-	color: $color-grey;
+	color: $color-post-metadata-p;
 	margin-top: 1rem;
 	line-height: 1.2;
 	font-weight: 400;
