@@ -37,17 +37,15 @@
 }
 #btns-container button {
     font-weight: bold;
-    border-radius: 0.8rem;
+    border-radius: 2rem;
+    box-shadow: 1px 2px 4px 0px rgba(89,87,87,0.85);
     padding: 1rem;
     width: 12rem;
     margin-bottom: 2rem;
 }
 #style-transfer-btn {
     font-size: 1.8rem;
-    font-weigt: bold;
-    /* nord-10 */
-    background: #5e81ac;
-    color: #eeeeee;
+    background: #eeff;
 }
 #add-style-image-btn {
     background: #eeff;
