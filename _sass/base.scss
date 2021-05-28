@@ -137,3 +137,12 @@ html {
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+
+//////////////////////////////////////////////////
+// Mobile Settings
+@media only screen and (max-width: 480px) {
+    a {
+	color: $color-link;
+	text-decoration: none;
+    }
+}
