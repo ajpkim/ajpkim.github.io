@@ -16,11 +16,11 @@
 #toc-btn {
     position: fixed;
     top: 3rem;
-    left: 1rem;
+    left: 3rem;
     background-color: transparent;
     border: none;
     color: $color-toc-btn;
-    font-size: 2em;
+    font-size: 5rem;
     box-shadow: none;
 }
 
@@ -36,7 +36,7 @@
     display: none;
     position: fixed;
     font-size: .85em;
-    top: 4em;
+    top: 4.5em;
     left: 1px;
     bottom: 1px;
     background-color: $color-bg;
